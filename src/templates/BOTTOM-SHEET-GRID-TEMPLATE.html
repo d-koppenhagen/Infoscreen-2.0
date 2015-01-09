@@ -1,0 +1,28 @@
+<md-bottom-sheet class="md-grid">
+    <!-- Menu -->
+    <md-list>
+        <md-item ng-repeat="item in items">
+            <md-button class="md-grid-item-content" aria-label="{{item.name}}" ng-click="listItemClick($index)">
+                <div class="md-icon-container">
+                    <md-inline-grid-icon class="{{item.icon}}"></md-inline-grid-icon>
+                </div>
+                <p class="md-grid-text">{{ item.name }}</p>
+            </md-button>
+        </md-item>
+    </md-list>
+
+    <!-- Content -->
+    <div layout="row" ng-controller="chooseTheme">
+        <div flex ng-repeat="column in design.item">
+            <md-radio-group ng-repeat="stylesheet in column">
+                <md-radio-button value="{{ stylesheet }}" aria-label="Label {{$index}}"  ng-click="swapStylesheet($index)">
+                    {{ stylesheet }}
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+    </div>
+    <div md-theme="{{ dynamicTheme }}" md-theme-watch>
+        <md-button class="md-primary">I'm dynamic</md-button>
+    </div>
+
+</md-bottom-sheet>

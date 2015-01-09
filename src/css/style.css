@@ -1,0 +1,19 @@
+
+<!--Style for Atom Feed parser-->
+
+#feedWrapper feed h4.media-heading a {
+    text-decoration: none !important;
+}
+
+#feedWrapper feed img {
+	max-width: 180px;
+}
+
+#feedWrapper feed p {
+line-height: 1.2;
+}
+
+#feedWrapper feed a[href *= "http://feeds.feedburner.com/~ff"]{
+    visibility: hidden;
+}
+<!--End: Style for Atom Feed parser-->
