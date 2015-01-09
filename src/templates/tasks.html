@@ -35,7 +35,7 @@ var onAuthorize = function() {
     Trello.members.get("me", function(member){
         $("#fullName").text(member.fullName);
 
-        var $cards = $("<div>")
+        var $cards = $("<ul>")
             .text("Loading Cards...")
             .appendTo("#output");
 
@@ -44,11 +44,13 @@ var onAuthorize = function() {
         Trello.get("members/me/cards", function(cards) {
             $cards.empty();
             $.each(cards, function(ix, card) {
+                var listElement = $("<li>");
                 $("<a>")
                 .attr({href: card.url, target: "trello"})
                 .addClass("card")
                 .text(card.name)
-                .appendTo($cards);
+                .appendTo(listElement);
+                listElement.appendTo($cards);
             });
         });
 

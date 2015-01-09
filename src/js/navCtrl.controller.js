@@ -30,6 +30,8 @@
         $scope.tabSelect = function(destination){
             $location.path(destination);
         };
+        $scope.wlanSSID = config.wlan.name;
+        $scope.wlanKey = config.wlan.key;
       });
 
 }());

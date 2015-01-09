@@ -1,6 +1,6 @@
 var config = {
     wlan:  {
-        name: null,  // "WLANNAME"
-        key: null    // "WLANKEY"
+        name: "WLANNAME",  // "WLANNAME"
+        key: "WLANKEY"    // "WLANKEY"
     }
 }
