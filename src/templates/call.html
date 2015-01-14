@@ -1,29 +1,8 @@
-<div ng-controller="webRTCctrl">
-    <div layout="row">
-        <div flex>
-                <div id="remotesVideos"></div>
-        </div>
-        <div flex="40">
-                <video height="300" id="localVideo"></video>
-        </div>
+<div layout="row">
+    <div flex>
+        <div id="remotesVideos"></div>
+    </div>
+    <div flex="40">
+        <video height="300" id="localVideo"></video>
     </div>
 </div>
-
-
-<script>
-/*
-var webrtc = new SimpleWebRTC({
-  // the id/element dom element that will hold "our" video
-  localVideoEl: 'localVideo',
-  // the id/element dom element that will hold remote videos
-  remoteVideosEl: 'remotesVideos',
-  // immediately ask for camera access
-  autoRequestMedia: true
-});
-
-webrtc.on('readyToCall', function () {
-  // you can name it anything
-  webrtc.joinRoom('your awesome room name');
-});
-*/
-</script>
