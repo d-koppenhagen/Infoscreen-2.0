@@ -1,3 +1,8 @@
-<div id="feedWrapper">
-    <feed summary="false" url="http://feeds.feedburner.com/blogspot/rkEL" count="10"/>
+<div>
+<md-content>
+    <section layout="row" layout-sm="column" layout-align="center center" ng-repeat="feed in feedItems">
+        <md-button class="md-raised md-primary" href="#/feeds/{{feed.id}}">{{feed.name}}</md-button>
+    </section>
+</md-content>
 </div>
+
