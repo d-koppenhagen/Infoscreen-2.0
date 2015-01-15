@@ -14,10 +14,11 @@
     <!--  ##############  Stylesheets ############## -->
     <!-- Vendor Stylesheets: -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Angulars Material CSS using RawGit to load directly from `bower-material/master` -->
-    <link rel="stylesheet" href="//rawgit.com/angular/bower-material/master/angular-material.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vendor/ripples.min.css" rel="stylesheet">
+    <link href="css/vendor/material-wfont.min.css" rel="stylesheet">
     <!-- Angular Feed API -->
-    <link rel="stylesheet" href="http://siddii.github.io/angular-feeds/app/angular-feeds/angular-feeds.min.css"/>
+    <link rel="stylesheet" href="http://siddii.github.io/angular-feeds/app/angular-feeds/angular-feeds.min.css" />
     <!-- Style -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <!--  ##############  End: Stylesheets ############## -->
@@ -25,12 +26,9 @@
     <!--  ##############  javascript files (Vendor files) ############## -->
     <!-- jQuery:  -->
     <script src="js/vendor/jquery-1.11.1.min.js"></script>
-    <!-- OR CDN: <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-
-    <!-- Angular.JS: -->
-    <!-- OR CDN: <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script> -->
-    <!--  ##############  End: javascript files (Vendor files) ############## -->
-
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/vendor/ripples.min.js"></script>
+    <script src="js/vendor/material.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -51,7 +49,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.js"></script>
 
     <!-- Angular Material Javascript using RawGit to load directly from `bower-material/master` -->
-    <script src="//rawgit.com/angular/bower-material/master/angular-material.js"></script>
+    <!--<script src="//rawgit.com/angular/bower-material/master/angular-material.js"></script>-->
 
     <!-- Angular Feed API -->
     <script src="http://siddii.github.io/angular-feeds/app/angular-feeds/angular-feeds.min.js"></script>
@@ -60,18 +58,16 @@
     <script src="js/routes.js"></script>
 
     <!-- Angular-Controllers -->
-    <script src="js/controller/bottomSheet.controller.js"></script>
-    <script src="js/controller/gridBottomSheet.controller.js"></script>
     <script src="js/controller/navCtrl.controller.js"></script>
     <script src="js/controller/start.controller.js"></script>
     <script src="js/controller/feed.controller.js"></script>
-    <script src="js/controller/rightSidebar.controller.js"></script>
     <script src="js/controller/task.controller.js"></script>
     <script src="js/controller/lvb.controller.js"></script>
     <script src="js/controller/gallery.controller.js"></script>
     <script src="js/controller/calendar.controller.js"></script>
     <script src="js/controller/guestbook.controller.js"></script>
     <script src="js/controller/webRTC.controller.js"></script>
+    <script src="js/controller/infoSidebar.controller.js"></script>
 
     <!-- WebRTC support-->
     <script src="http://simplewebrtc.com/latest.js"></script>
@@ -79,41 +75,32 @@
 
 <body>
     <!-- Nav Controller -->
-    <div ng-controller="navCtrl" layout="column" layout-fill>
-        <md-tabs class="md-primary md-hue-2">
-            <md-tab aria-controls="tab{{$index}}-content" ng-repeat="item in navItem.label" md-on-select="tabSelect(item.destination)">
-                <md-tab-label>
-                    <span class="{{item.icon}}"></span> {{item.name}}
-                </md-tab-label>
-            </md-tab>
-        </md-tabs>
-
-        <!-- Content-Container -->
-        <section layout="row">
-            <md-content flex class="md-padding">
-                <!-- Fill Container with templates: -->
-                <div ng-view layout="column" layout-fill layout-align="left"></div>
-            </md-content>
-            <md-content flex="30">
-
-            </md-content>
-        </section>
-        <!-- ./Content-Container -->
+    <div ng-controller="navCtrl" class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">WG-Screen 2.0</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav" ng-repeat="item in navItem.label">
+                <li>
+                    <a ng-href="{{item.destination}}">
+                        <span class="{{item.icon}}"></span> {{item.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
     <!-- ./Nav Controller -->
-
-    <!-- Sidebar right -->
-    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-        <md-toolbar class="md-theme-light">
-            <h1 class="md-toolbar-tools">Sidenav Right</h1>
-        </md-toolbar>
-        <md-content ng-controller="RightCtrl" class="md-padding">
-            <md-button ng-click="close()" class="md-primary">
-                Close Sidenav Right
-            </md-button>
-        </md-content>
-    </md-sidenav>
-    <!-- ./Sidebar right -->
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-view class="col-md-9"></div>
+            <div ng-include="'templates/infobar.html'" class="col-md-3"></div>
+        </div>
+    </div>
 </body>
 
 </html>
