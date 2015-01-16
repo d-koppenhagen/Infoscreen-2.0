@@ -15,6 +15,7 @@ This the new version of my WG-Screen WebApp using AngularJS.
 
 ## Configuration ##
 - move file from the folder '/src/js/settings.example.js' to '/src/js/settings.js'
+- move file from the folder '/src/php/dbConfig.example.php' to '/src/php/dbConfig.php'
 - (edit the setting file)
 
 ## How it looks like? ##
