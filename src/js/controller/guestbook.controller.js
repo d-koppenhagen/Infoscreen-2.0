@@ -40,8 +40,8 @@
                     }
             };
 
-            console.log("Max:", config.gb.max_stations);
-            $scope.gblimit = config.gb.max_stations;
+            console.log("Max:", localStorage.getItem("max_gb"));
+            $scope.gblimit = localStorage.getItem("max_gb");
             $scope.moreEntries = function () {
                     console.log("loading more entries...");
                     $scope.gblimit = parseInt($scope.gblimit)+5;

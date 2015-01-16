@@ -22,7 +22,7 @@
                 }
                 $timeout(refresh,0);
 
-                $scope.stationlimit = config.lvb.max_stations;
+                $scope.stationlimit = localStorage.getItem("max_stations");
                 $scope.moreEntries = function () {
                     console.log("test");
                     $scope.stationlimit = parseInt($scope.stationlimit)+5;
