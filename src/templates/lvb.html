@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div ng-repeat="station in stations" class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{stations.stationName}}</h3>
+                    <h3 class="panel-title">{{station.stationName}}</h3>
                 </div>
                 <div class="panel-body"></div>
-                <div ng-repeat="connection in stations.journeys |limitTo:10" class="list-group">
+                <div ng-repeat="connection in station.journeys |limitTo:10" class="list-group">
                     <div class="list-group-item">
                         <div class="row-action-primary">
                             <i style="background-color: #{{connection.color}} !important;">{{connection.shortLabel}}</i>
@@ -14,11 +14,11 @@
                         <div class="row-content">
                             <div class="least-content">
                                 <h4>
-                        <span class="text-primary">{{connection.time}}</span> <span class="text-danger">{{connection.timeDiff}}</span>
+                                    <span class="text-danger" ng-hide="connection.timeDiff == '+0'">{{connection.timeDiff}} min.</span>
                                 </h4>
                             </div>
                             <h4 class="list-group-item-heading">{{connection.label}}</h4>
-                            <p class="list-group-item-text"></p>
+                            <h5 class="list-group-item-text"><span class="text-primary">{{connection.time}}</span></h5>
                         </div>
                     </div>
                     <div class="list-group-separator"></div>
