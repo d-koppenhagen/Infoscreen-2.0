@@ -6,18 +6,56 @@
         .controller('gbCtrl', ['$scope', '$http', '$routeParams',
             function($scope, $http, $routeParams) {
                 console.log('open guestbook page...');
-                $http.get('php/getGuestbookData.php')
-                    .success(insertGBData)
-                    .error(function(data, status, headers, config) {
-                    console.log("Error by getting data", data, status, headers, config);
-                });
+
+                refreshGB();
+                function refreshGB(){
+                    $http.get('php/getGuestbookData.php')
+                        .success(insertGBData)
+                        .error(function(data, status, headers, config) {
+                        console.log("Error by getting data", data, status, headers, config);
+                    });
+                }
+                $scope.sendGBentry = function (){
+                    console.log("sending data...");
+                    var msg = $('#summernote').code();
+
+                    // Aus den Daten die Anfrage für das PHP-Skript zusammensetzen
+                    var dataObj = {
+                        "name": $scope.inputName,
+                        "message": msg
+                    };
+
+                    $http.post('php/gbentry.php', dataObj)
+                            .success(callback)
+                            .error(function(data, status, headers, config) {
+                            console.log("Error by getting guestbook data", data, status, headers, config);
+                    });
+
+                    function callback (answer){
+                        console.log("Callback: ", answer);
+                        var response = answer.replace(/\s/g, "");
+                        if (response === "success") { // Nachricht wurde erfolgreich verschickt
+                            refreshGB();
+                        }
+                    }
+            };
+
+            console.log("Max:", config.gb.max_stations);
+            $scope.gblimit = config.gb.max_stations;
+            $scope.moreEntries = function () {
+                    console.log("loading more entries...");
+                    $scope.gblimit = parseInt($scope.gblimit)+5;
+                };
+
+
+
 
                 function insertGBData (data) {
                     console.log(data);
                     $scope.gbentries = data;
                     $('#summernote').summernote({
-                            height: 150,                // set editor height
-                            minHeight: 25,              // set minimum height of editor
+                            height: 100,                // set editor height
+                            minHeight: 20,              // set minimum height of editor
                             //maxHeight: 300,             // set maximum height of editor
                             focus: true,                // set focus to editable area after initializing summernote
                             toolbar: [
