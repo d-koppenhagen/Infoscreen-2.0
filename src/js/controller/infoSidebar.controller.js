@@ -59,6 +59,11 @@
                                 data.list[0].main.humidity,
                                 data.list[1].main.humidity,
                                 data.list[2].main.humidity
+                            ],
+                            icons : [
+                                data.list[0].weather[0].icon,
+                                data.list[1].weather[0].icon,
+                                data.list[2].weather[0].icon
                             ]
                         };
                 }

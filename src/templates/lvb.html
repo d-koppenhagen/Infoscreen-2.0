@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{stations.stationName}}</h3>
+            </div>
+            <div class="panel-body"></div>
+            <div ng-repeat="connection in stations.journeys" class="list-group">
+                <div class="list-group-item">
+                    <div class="row-action-primary">
+                        <i style="background-color: #{{connection.color}} !important;">{{connection.shortLabel}}</i>
+                    </div>
+                    <div class="row-content">
+                        <div class="least-content">
+                            <h4>
+                        <span class="text-primary">{{connection.time}}</span> <span class="text-danger">{{connection.timeDiff}}</span>
+                    </h4>
+                        </div>
+                        <h4 class="list-group-item-heading">{{connection.label}}</h4>
+                        <p class="list-group-item-text"></p>
+                    </div>
+                </div>
+                <div class="list-group-separator"></div>
+            </div>
+        </div>
+    </div>
+</div>
