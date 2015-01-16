@@ -1,8 +1,3 @@
-<div>
-<md-content>
-    <section layout="row" layout-sm="column" layout-align="center center" ng-repeat="feed in feedItems">
-        <md-button class="md-raised md-primary" href="#/feeds/{{feed.id}}">{{feed.name}}</md-button>
-    </section>
-</md-content>
+<div ng-repeat="feed in feedItems" class="btn-group btn-group-justified">
+    <a ng-href="#/feeds/{{feed.id}}" class="btn btn-default">{{feed.name}}</a>
 </div>
-

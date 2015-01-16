@@ -1,65 +1,55 @@
 <div ng-controller="infoSidebarCtrl">
-  <md-toolbar class="md-accent">
-    <div class="md-toolbar-tools">
-      <span class="md-flex">{{cityname}} - {{currentTemp}}&deg;C - {{time}}</span>
+    <div id="ownVideoContainer" class="panel panel-primary hidden">
+        <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="ownVideoContainer">×</button>
+            <h3 class="panel-title">Mein Bild</h3>
+        </div>
+        <div class="embed-responsive embed-responsive-4by3">
+            <video id="localVideo" class="embed-responsive-item" ></video>
+        </div>
     </div>
-  </md-toolbar>
-  <md-content class="md-padding" style="height: 600px;">
-    Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.
-  </md-content>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{cityname}}, aktuell: {{currentTemp}}&deg;C</h3>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Heute</th>
+                    <th>Morgen</th>
+                    <th>Übermorgen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Durchschnittlich</td>
+                    <td ng-repeat="temp in weatherData.temperatures.average">{{temp | number:1}}&deg;C</td>
+                </tr>
+                <tr>
+                    <td>Minimal</td>
+                    <td ng-repeat="temp in weatherData.temperatures.min">{{temp | number:1}}&deg;C</td>
+                </tr>
+                <tr>
+                    <td>Maximal</td>
+                    <td ng-repeat="temp in weatherData.temperatures.max">{{temp | number:1}}&deg;C</td>
+                </tr>
+
+                <!-- Cloud symbols -->
+                <tr>
+                    <td>Windgeschwindigkeit</td>
+                    <td ng-repeat="speed in weatherData.wind.speed">{{speed | number:1}} km/h</td>
+                </tr>
+                <tr>
+                    <td>Luftdruck</td>
+                    <td ng-repeat="pres in weatherData.pressure">{{pres | number:0}} hPa</td>
+                </tr>
+                <tr>
+                    <td>Luftfeuchtigkeit</td>
+                    <td ng-repeat="hum in weatherData.humidity">{{hum | number:1}} %</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
-<table class="table table-striped table-hover ">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="info">
-            <td>3</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="success">
-            <td>4</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="danger">
-            <td>5</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="warning">
-            <td>6</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="active">
-            <td>7</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-    </tbody>
-</table>

@@ -44,7 +44,7 @@
                 controller: 'webRTCctrl',
 			}).
             otherwise({
-                redirectTo: '/'
+                templateUrl: 'templates/start.html',
             });
 	}
 }());

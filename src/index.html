@@ -47,6 +47,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.15/angular-locale_de-de.js"></script>
 
     <!-- Angular Material Javascript using RawGit to load directly from `bower-material/master` -->
     <!--<script src="//rawgit.com/angular/bower-material/master/angular-material.js"></script>-->
@@ -87,8 +88,15 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav" ng-repeat="item in navItem.label">
                 <li>
-                    <a ng-href="{{item.destination}}">
-                        <span class="{{item.icon}}"></span> {{item.name}}
+                    <a ng-href="{{item.destination}}"  href="javascript:void(0)">
+                        <i class="{{item.icon}}"></i> {{item.name}}
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a ng-href="{{item.destination}}"  href="javascript:void(0)">
+                        <i class="mdi-action-schedule"></i> {{date | date:"EEEE ', ' d '. ' MMMM yyyy '. Es ist ' hh:mm:ss"}}
                     </a>
                 </li>
             </ul>
@@ -97,8 +105,8 @@
     <!-- ./Nav Controller -->
     <div class="container-fluid">
         <div class="row">
-            <div ng-view class="col-md-9"></div>
-            <div ng-include="'templates/infobar.html'" class="col-md-3"></div>
+            <div ng-view class="col-md-8"></div>
+            <div ng-include="'templates/infobar.html'" class="col-md-4"></div>
         </div>
     </div>
 </body>

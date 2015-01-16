@@ -1,13 +1,29 @@
-<div>
-    <div layout="row">
-        <h1>Wilkommen in der WG 2.0 </h1>
+<h1>Wilkommen in der WG 2.0 </h1>
+<p>
+    Jetzt endlich mit AngularJS!
+</p>
+    <div class="list-group">
+    <div class="list-group-item">
+        <div class="row-action-primary">
+            <i class="mdi-device-wifi-lock"></i>
+        </div>
+        <div class="row-content">
+            <div class="action-secondary"><i class="mdi-material-info"></i></div>
+            <h4 class="list-group-item-heading">WLAN Zugang für Gäste</h4>
+            <p class="list-group-item-text">Netzwerkname (SSID): {{wlanSSID}}Kennwort: {{wlanKey}}</p>
+        </div>
     </div>
-    <div layout="column">
-      <md-whiteframe class="md-whiteframe-z1" layout="row" layout-align="center">
-        <p>WLAN Zugang für Gäste: Netzwerkname (SSID): <span>{{wlanSSID}}</span> Kennwort: <span>{{wlanKey}}</span></p>
-      </md-whiteframe>
+
+    <div class="list-group-separator"></div>
+
+    <div class="list-group-item">
+        <div class="row-action-primary">
+            <i class="mdi-action-settings icon"></i>
+        </div>
+        <div class="row-content">
+            <div class="action-secondary"><i class="mdi-material-info"></i></div>
+            <h4 class="list-group-item-heading">Einstellungen</h4>
+            <p class="list-group-item-text">WG-Screen Konfigurieren</p>
+        </div>
     </div>
-    <md-button class="md-fab" aria-label="Settings"  ng-click="toggleRight()" >
-        <span class="fa fa-gears fa-2x"></span>
-    </md-button>
 </div>
