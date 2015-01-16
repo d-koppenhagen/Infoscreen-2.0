@@ -23,6 +23,10 @@
                 $timeout(refresh,0);
 
                 $scope.stationlimit = config.lvb.max_stations;
+                $scope.moreEntries = function () {
+                    console.log("test");
+                    $scope.stationlimit = parseInt($scope.stationlimit)+5;
+                };
 
                 function randomTime(){
                     /*  val1:2min (+val2)    ; val2: 4min (min)*/
