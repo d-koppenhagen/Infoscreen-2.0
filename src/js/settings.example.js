@@ -9,6 +9,9 @@ var config = {
         ],
         max_stations : "10",
         clientID : generateClientID()
+    },
+    gb: {
+        max_stations : "8"
     }
 }
 
