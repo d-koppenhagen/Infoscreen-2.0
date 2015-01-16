@@ -6,7 +6,7 @@
         .controller('lvbCtrl', ['$scope', '$http', '$routeParams',
             function($scope, $http, $routeParams) {
                 console.log('open lvb page...');
-                $scope.stationlimit = config.lvb.max_stations;
+                //$scope.stationlimit = config.lvb.max_stations;
 
                 $http.post('php/stations.php', config.lvb)
                     .success(insertLVBData)
