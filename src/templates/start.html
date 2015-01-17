@@ -18,12 +18,19 @@
 
     <div class="list-group-item">
         <div class="row-action-primary">
-            <i class="mdi-action-settings icon"></i>
+            <i ng-href="/settings" class="mdi-action-settings icon"></i>
         </div>
         <div class="row-content">
-            <div class="action-secondary"><i class="mdi-material-info"></i></div>
-            <h4 class="list-group-item-heading">Einstellungen</h4>
-            <p class="list-group-item-text">WG-Screen Konfigurieren</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="action-secondary"><i class="mdi-material-info"></i></div>
+                    <h4 class="list-group-item-heading">Einstellungen</h4>
+                    <p class="list-group-item-text">WG-Screen Konfigurieren</p>
+                </div>
+                <div class="col-md-4">
+                    <a ng-href="#/settings" class="btn btn-primary btn-raised pull-right">Zu den Einstellungen <i class="mdi-navigation-arrow-forward"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

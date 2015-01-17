@@ -8,16 +8,19 @@
                 console.log('open lvb page...');
 
                 var refresh  = function(){
-                    console.log("Refreshing duration monitor...");
-                        $http.post('php/stations.php', config.lvb)
-                            .success(insertLVBData)
-                            .error(function(data, status, headers, config) {
-                            console.log("Error by getting data", data, status, headers, config);
-                        });
-                        function insertLVBData (data) {
-                            console.log(data);
-                            $scope.stations = data;
-                        }
+                    console.log("Refreshing duration monitor...", config.lvb);
+                    config.lvb.stations = JSON.parse(localStorage.getItem("lvb_station_ids")); // replace with localStorage value
+
+                    //sending data and get a result
+                    $http.post('php/stations.php', config.lvb)
+                        .success(insertLVBData)
+                        .error(function(data, status, headers, config) {
+                        console.log("Error by getting data", data, status, headers, config);
+                    });
+                    function insertLVBData (data) {
+                        console.log(data);
+                        $scope.stations = data;
+                    }
                     $timeout(refresh,randomTime());
                 }
                 $timeout(refresh,0);
