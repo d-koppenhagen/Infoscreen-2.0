@@ -10,11 +10,13 @@
                 var stationIDs = JSON.parse(localStorage.getItem("lvb_station_ids"));
                 $scope.hafasids = stationIDs;
                 $scope.deleteStation = function(deleteStationID){
+                if (!confirm("Wirklich löschen?")) return;
                     stationIDs.splice( $.inArray(deleteStationID, stationIDs), 1 );
                     localStorage.setItem("lvb_station_ids","["+stationIDs+"]");
                     console.log("deleted station with ID: ", deleteStationID);
                 }
                 $scope.storeNewHafasID = function(id){
+                    if (!id) retrun; //break if id is undefined)
                     console.log("received new hafas id: ", id);
                     stationIDs.push(id);
                     localStorage.setItem("lvb_station_ids","["+stationIDs+"]");
