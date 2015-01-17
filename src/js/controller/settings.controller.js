@@ -23,39 +23,52 @@
                 }
 
                 // change max. station entries
-                createUISliders();
+                $("#selectMaxStationsSlider").noUiSlider({
+                    start: 8,
+                    step: 1,
+                    behaviour: 'drag',
+                    connect: 'upper',
+                    range: {
+                        'min': 1,
+                        'max': 30
+                    }
+                });
+                $("#selectMaxStationsSlider").val(localStorage.getItem("max_stations"));
                 $scope.currentStationValue = $('#selectMaxStationsSlider').val();
                 $("#selectMaxStationsSlider").on({
                     slide: function(){
-                        writeNewValue(this);
-                    },
-                    set: function(){
-                        writeNewValue(this);
+                        $scope.currentStationValue = $(this).val();
+                        localStorage.setItem("max_stations", $(this).val());
                     },
                     change: function(){
-                        writeNewValue(this);
+                        $scope.currentStationValue = $(this).val();
+                        localStorage.setItem("max_stations", $(this).val());
                     }
                 });
-                function writeNewValue(element){
-                    var newValue = $(element).val();
-                     $scope.currentStationValue = newValue;
-                    localStorage.setItem("max_stations", newValue);
-                }
+
+                // change max. gb entries
+                $("#selectMaxGBEntries").noUiSlider({
+                    start: 8,
+                    step: 1,
+                    behaviour: 'tap',
+                    connect: 'upper',
+                    range: {
+                        'min': 1,
+                        'max': 30
+                    }
+                });
+                $("#selectMaxGBEntries").val(localStorage.getItem("max_gb"));
+                $scope.currentGBvalue = $('#selectMaxGBEntries').val();
+                $("#selectMaxGBEntries").on({
+                    slide: function(){
+                        $scope.currentGBvalue = $(this).val();
+                        localStorage.setItem("max_gb", $(this).val());
+                    },
+                    change: function(){
+                        $scope.currentGBvalue = $(this).val();
+                        localStorage.setItem("max_gb", $(this).val());
+                    }
+                });
 
         }]);
 }());
-
-
-function createUISliders() {
-    $('#selectMaxStationsSlider').noUiSlider({
-        start: 8,
-        step: 1,
-        behaviour: 'tap',
-        connect: 'upper',
-        range: {
-            'min': 1,
-            'max': 20
-        }
-    });
-    $('#selectMaxStationsSlider').val(localStorage.getItem("max_stations"));
-}

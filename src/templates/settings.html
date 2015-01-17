@@ -17,7 +17,7 @@
                 </span>
             </div>
             <p>Aktuelle Stationen (IDs):</p>
-                <div ng-repeat="id in hafasids" class="col-lg-6">
+                <div ng-repeat="id in hafasids" class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <div class="alert alert-dismissable alert-info">
                         <a ng-click="deleteStation(id)" type="button" class="close">×</a>{{id}}
                     </div>
@@ -27,18 +27,8 @@
         <!-- Gästebuch -->
         <legend>Gästebuch</legend>
         <div class="form-group">
-            <label for="selectMaxGBentries" class="col-lg-3 control-label">Anzahl der Gästebucheinträge</label>
-            <div class="col-lg-1">
-                <input type="text" class="form-control" id="selectMaxGBentries">
-            </div>
-        </div>
-
-        <!-- submit / cancel buttons-->
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <button class="btn btn-default">Abbrechen</button>
-                <button type="submit" class="btn btn-primary">Speichern</button>
-            </div>
+            <label for="selectMaxGBEntries">Anzahl der Gästebucheinträge: <span id="selectMaxGBLabel">{{currentGBvalue | number:0}}</span></label>
+            <div class="sliders" id="selectMaxGBEntries"></div>
         </div>
     </fieldset>
 </form>
