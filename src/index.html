@@ -10,7 +10,8 @@
     <!-- used to start like an app with google chrome on android: -->
     <meta name="mobile-web-app-capable" content="yes">
     <!--  ##############  End: Meta Tags ############## -->
-
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico">
     <!--  ##############  Stylesheets ############## -->
     <!-- Vendor Stylesheets: -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -107,23 +108,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">WG-Screen 2.0</a>
+            <a class="navbar-brand"></a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav" ng-repeat="item in navItem.label">
                 <li>
                     <a ng-href="{{item.destination}}"  href="javascript:void(0)">
-                        <i class="{{item.icon}}"></i> {{item.name}}
+                        <i class="{{item.icon}}"></i> <span class="hidden-sm">{{item.name}}</span>
                     </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a ng-href="{{item.destination}}"  href="javascript:void(0)">
-                        <i class="mdi-action-schedule"></i> {{date | date:"EEEE ', ' d '. ' MMMM yyyy '. Es ist ' hh:mm:ss"}}
+                        <span class="visible-lg">{{date | date:"EEEE ', ' d '. ' MMMM yyyy '. Es ist ' hh:mm:ss"}}</span>
+                        <span class="visible-md">{{date | date:"d'.'MM'.'yyyy' - ' hh:mm:ss"}}</span>
+                        <span class="visible-sm">{{date | date:"hh:mm:ss"}}</span>
                     </a>
                 </li>
-                <li>
+                <li class="visible-lg visible-md">
                     <a ng-click="reloadPage()" class="btn btn-default btn-fab btn-raised mdi-navigation-refresh"></a>
                 </li>
             </ul>

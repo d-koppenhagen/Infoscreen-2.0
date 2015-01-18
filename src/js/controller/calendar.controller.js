@@ -13,8 +13,20 @@
                             googleCalendarId: 'abcd1234@group.calendar.google.com'
                         }
                     ],
+
+                    header: {
+                        left:   'title',
+                        center: '',
+                        right:  'today prev,next'
+                    },
                     weekNumbers: true,
                     weekNumberCalculation: "local",
+                    buttonIcons: {
+                        prev: 'left-single-arrow',
+                        next: 'right-single-arrow',
+                        prevYear: 'left-double-arrow',
+                        nextYear: 'right-double-arrow'
+                    }
 
                 });
         }]);
