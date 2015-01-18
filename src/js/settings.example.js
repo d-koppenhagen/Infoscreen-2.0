@@ -1,17 +1,20 @@
 var config = {
-    wlan:  {
-        name: "WLANNAME",  // "WLANNAME"
-        key: "WLANKEY"    // "WLANKEY"
+    "wlan":  {
+        "name": "WLANNAME",  // "WLANNAME"
+        "key": "WLANKEY"    // "WLANKEY"
     },
-    lvb: {
-        stations : [  // array with hfas-IDs
+    "lvb": {
+        "stations" : [  // array with hfas-IDs
             "13247","11563"
         ],
-        max_stations : "10",
-        clientID : generateClientID()
+        "max_stations" : "8",
+        "clientID" : generateClientID()
     },
-    gb: {
-        max_stations : "8"
+    "gb": {
+        "max_entries" : "8"
+    },
+    "weather": {
+        "location" : "2879139"
     }
 }
 
