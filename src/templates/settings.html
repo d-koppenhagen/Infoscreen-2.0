@@ -29,7 +29,7 @@
         <legend>Gästebuch</legend>
         <div class="form-group">
             <label for="selectMaxGBEntries">Anzahl der Gästebucheinträge: <span id="selectMaxGBLabel">{{currentGBvalue | number:0}}</span></label>
-            <div class="sliders" id="selectMaxGBEntries" data-toggle=snackbar data-content="Es werden nun {{currentStationValue | number:0}} Gästebucheinträge angezeigt"></div>
+            <div class="sliders" id="selectMaxGBEntries" data-toggle=snackbar data-content="Es werden nun {{currentGBvalue | number:0}} Gästebucheinträge angezeigt"></div>
         </div>
 
 
@@ -37,7 +37,7 @@
         <legend>RSS-Feeds</legend>
         <div class="form-group">
             <label for="selectMaxStations">Anzahl der Feeds: <span id="selectMaxStationsLabel">{{currentFeedValue | number:0}}</span></label>
-            <div class="sliders" id="selectMaxFeedSlider" data-toggle=snackbar data-content="Es werden nun {{currentStationValue | number:0}} Feedeinträge angezeigt"></div>
+            <div class="sliders" id="selectMaxFeedSlider" data-toggle=snackbar data-content="Es werden nun {{currentFeedValue | number:0}} Feedeinträge angezeigt"></div>
         </div>
         <div class="form-group">
             <label for="feedNameinput">Feedname:</label>
