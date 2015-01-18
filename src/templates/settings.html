@@ -6,14 +6,14 @@
         <legend>Abfahrtsmonitor</legend>
         <div class="form-group">
             <label for="selectMaxStations">Anzahl der Verbindungen: <span id="selectMaxStationsLabel">{{currentStationValue | number:0}}</span></label>
-            <div class="sliders" id="selectMaxStationsSlider"></div>
+            <div class="sliders" id="selectMaxStationsSlider" data-toggle=snackbar data-content="Es werden nun {{currentStationValue | number:0}} Verbindungen angezeigt"></div>
         </div>
         <div class="form-group">
             <label for="hfasIDsInput">Hafas IDs:</label>
             <div class="input-group">
                 <input ng-model="newStationID" ng-minlength="5" ng-maxlength="5" type="text" class="form-control input-lg" id="hfasIDsInput" placholder="12345">
                 <span class="input-group-addon">
-                    <a ng-click="storeNewHafasID(newStationID)" class="btn btn-primary btn-fab btn-raised mdi-content-save"></a>
+                    <a ng-click="storeNewHafasID(newStationID)" class="btn btn-primary btn-fab btn-raised mdi-content-save" data-toggle=snackbar data-content="Eine neue Haltestelle wurde hinzugefügt!"></a>
                 </span>
             </div>
             <p>Aktuelle Stationen (IDs):</p>
@@ -29,7 +29,7 @@
         <legend>Gästebuch</legend>
         <div class="form-group">
             <label for="selectMaxGBEntries">Anzahl der Gästebucheinträge: <span id="selectMaxGBLabel">{{currentGBvalue | number:0}}</span></label>
-            <div class="sliders" id="selectMaxGBEntries"></div>
+            <div class="sliders" id="selectMaxGBEntries" data-toggle=snackbar data-content="Es werden nun {{currentStationValue | number:0}} Gästebucheinträge angezeigt"></div>
         </div>
 
 
@@ -37,7 +37,7 @@
         <legend>RSS-Feeds</legend>
         <div class="form-group">
             <label for="selectMaxStations">Anzahl der Feeds: <span id="selectMaxStationsLabel">{{currentFeedValue | number:0}}</span></label>
-            <div class="sliders" id="selectMaxFeedSlider"></div>
+            <div class="sliders" id="selectMaxFeedSlider" data-toggle=snackbar data-content="Es werden nun {{currentStationValue | number:0}} Feedeinträge angezeigt"></div>
         </div>
         <div class="form-group">
             <label for="feedNameinput">Feedname:</label>
@@ -48,7 +48,7 @@
             <div class="input-group">
                 <input ng-model="newRSSfeedURL" required type="url" class="form-control input-lg" id="feedURLinput" placholder="http://yourFavoriteFeed.com/feed/">
                 <span class="input-group-addon">
-                    <a ng-click="storeNewFeed(newRSSfeedName, newRSSfeedURL)" class="btn btn-primary btn-fab btn-raised mdi-content-save"></a>
+                    <a ng-click="storeNewFeed(newRSSfeedName, newRSSfeedURL)" class="btn btn-primary btn-fab btn-raised mdi-content-save"  data-toggle=snackbar data-content="Ein neuer Feed wurde hinzugefügt!"></a>
                 </span>
             </div>
             <p>Aktuelle RSS-Feeds:</p>
