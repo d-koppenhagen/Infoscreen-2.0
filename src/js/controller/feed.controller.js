@@ -3,8 +3,6 @@
     "use strict";
 	angular
 		.module('wgscreen')
-
-
         .factory('FeedLoader', function ($resource) {
             return $resource('http://ajax.googleapis.com/ajax/services/feed/load', {}, {
                 fetch: { method: 'JSONP', params: {v: '1.0', callback: 'JSON_CALLBACK'} }
@@ -28,12 +26,14 @@
             };
         })
 
-        .controller('feedCtrl', function ($scope, FeedList) {
+        .controller('feedCtrl', function ($scope, $routeParams, FeedList) {
             $scope.feeds = FeedList.get();
             //console.log(FeedList.get());
             $scope.$on('FeedList', function (event, data) {
                 $scope.feeds = data;
             });
+
+            $scope.selectedName = $routeParams.id;
 
             $scope.feedlimit = localStorage.getItem("max_feed");
 
