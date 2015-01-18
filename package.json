@@ -1,0 +1,9 @@
+{
+    "name": "shoppinglist",
+    "description": "A simple shopping list based on node.js and MongoDB",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "3.x"
+    }
+}

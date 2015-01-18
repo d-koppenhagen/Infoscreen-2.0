@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>API index</title>
+  </head>
+  <body>
+    <section>
+      <h1>Nouns...</h1>
+      <p>
+        /products<br>
+        /products/:id
+      </p>
+    </section>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  </body>
+</html>
+
+<script>
+jQuery.post("/api/pictures", {
+  "title": "My Awesome T-shirt",  
+  "description": "All about the details. Of course it's black.",  
+  "images": [  
+    {  
+      "kind": "thumbnail",  
+      "url": "images/1.png"  
+    }  
+  ],  
+}, function(data, textStatus, jqXHR) { 
+    console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR); 
+});
+
+
+</script>
