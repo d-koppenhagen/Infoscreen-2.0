@@ -24,11 +24,40 @@
                 </div>
         </div>
 
+
         <!-- Gästebuch -->
         <legend>Gästebuch</legend>
         <div class="form-group">
             <label for="selectMaxGBEntries">Anzahl der Gästebucheinträge: <span id="selectMaxGBLabel">{{currentGBvalue | number:0}}</span></label>
             <div class="sliders" id="selectMaxGBEntries"></div>
         </div>
+
+
+        <!-- Abfahrtsmonitor -->
+        <legend>RSS-Feeds</legend>
+        <div class="form-group">
+            <label for="selectMaxStations">Anzahl der Feeds: <span id="selectMaxStationsLabel">{{currentFeedValue | number:0}}</span></label>
+            <div class="sliders" id="selectMaxFeedSlider"></div>
+        </div>
+        <div class="form-group">
+            <label for="feedNameinput">Feedname:</label>
+            <div class="input-group">
+                <input ng-model="newRSSfeedName" required type="text" class="form-control input-lg" id="feedNameinput" placholder="My Feed">
+            </div>
+            <label for="feedURLinput">RSS-Feed-URL:</label>
+            <div class="input-group">
+                <input ng-model="newRSSfeedURL" required type="url" class="form-control input-lg" id="feedURLinput" placholder="http://yourFavoriteFeed.com/feed/">
+                <span class="input-group-addon">
+                    <a ng-click="storeNewFeed(newRSSfeedName, newRSSfeedURL)" class="btn btn-primary btn-fab btn-raised mdi-content-save"></a>
+                </span>
+            </div>
+            <p>Aktuelle RSS-Feeds:</p>
+                <div ng-repeat="feed in rssFeeds track by $index" class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="alert alert-dismissable alert-info">
+                        <a ng-click="deleteRSSFeed(feed.id)" type="button" class="close">×</a>{{feed.title}}
+                    </div>
+                </div>
+        </div>
+
     </fieldset>
 </form>

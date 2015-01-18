@@ -1,3 +1,34 @@
+<!--
 <div ng-repeat="feed in feedItems" class="btn-group btn-group-justified">
     <a ng-href="#/feeds/{{feed.id}}" class="btn btn-default">{{feed.name}}</a>
+</div>
+-->
+
+<div id="feedWrapper">
+    <div ng-repeat="feed in feeds | orderBy:'title'" class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></h3>
+        </div>
+        <div class="panel-body"></div>
+        <div ng-repeat="item in feed.entries |limitTo:feedlimit" class="list-group">
+            <div class="list-group-item">
+                <div class="row-content">
+                    <div class="least-content">{{item.publishedDate | date:"short"}}</div>
+                    <h4 class="list-group-item-heading"><a href="{{item.link}}" target="_blank">{{item.title}}</a></h4>
+                    <p class="list-group-item-text" ng-bind-html="item.content |  date:'short '"></p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-lg-1 col-md-2 col-sm-">
+                    <a ng-click="moreEntries()" class="btn btn-default btn-fab btn-raised mdi-navigation-expand-more"></a>
+                </div>
+                <div class="col-lg-11 col-md-10 hidden-sm hidden-xs">
+                    <h4>Mehr Einträge laden</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

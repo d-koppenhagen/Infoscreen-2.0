@@ -3,7 +3,7 @@
 
 	angular
 		.module('wgscreen')
-        .controller('navCtrl', function( $scope, $timeout, $location ) {
+        .controller('navCtrl', function( $scope, $timeout, $location, $window ) {
 
         $scope.date = new Date();
                           var tick = function() {
@@ -37,6 +37,11 @@
         };
         $scope.wlanSSID = config.wlan.name;
         $scope.wlanKey = config.wlan.key;
+
+        $scope.reloadPage = function (){
+            //$location.path('/');
+            $window.location.reload();
+        };
       });
 
 }());

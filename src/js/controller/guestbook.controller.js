@@ -139,7 +139,7 @@
                                 [
                                     'view',
                                     [
-                                        'fullscreen',
+                                        //'fullscreen',
                                         'codeview'
                                     ]
                                 ],
