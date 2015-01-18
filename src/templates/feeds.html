@@ -3,9 +3,12 @@
     <a ng-href="#/feeds/{{feed.id}}" class="btn btn-default">{{feed.name}}</a>
 </div>
 -->
+<div class="btn-group">
+    <a ng-repeat="feedlink in feeds | orderBy:'title'" ng-href="#/feeds/{{feedlink.title}}" class="btn btn-default">{{feedlink.title}}</a>
+</div>
 
 <div id="feedWrapper">
-    <div ng-repeat="feed in feeds | orderBy:'title'" class="panel panel-primary">
+    <div ng-repeat="feed in feeds | orderBy:'title' | filter:{ title: selectedName}" class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title"><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></h3>
         </div>

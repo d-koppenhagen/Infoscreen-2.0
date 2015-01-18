@@ -28,7 +28,7 @@
                 controller: 'feedCtrl'
 			}).
 			when('/feeds/:id', {
-				template: '<feed summary="false" url="http://feeds.feedburner.com/blogspot/rkEL" count="10"></feed>',
+                templateUrl: 'templates/feeds.html',
                 controller: 'feedCtrl'
 			}).
 			when('/gb', {
