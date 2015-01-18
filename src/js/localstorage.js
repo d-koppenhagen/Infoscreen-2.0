@@ -10,3 +10,9 @@ if (!(localStorage.getItem("max_gb"))){
 if (!(localStorage.getItem("weather_location"))){
     localStorage.setItem("weather_location", config.weather.location)
 }
+if (!(localStorage.getItem("rssFeeds"))){
+    localStorage.setItem("rssFeeds", JSON.stringify(config.rssFeeds))
+}
+if (!(localStorage.getItem("max_feed"))){
+    localStorage.setItem("max_feed", "10")
+}

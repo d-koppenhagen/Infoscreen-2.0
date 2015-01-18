@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             <div class="col-lg-12">
-                <a ng-click="sendGBentry()" class="btn btn-default btn-lg btn-block  btn-raised">
+                <a ng-click="sendGBentry()" class="btn btn-primary btn-lg btn-block  btn-raised">
                     <i class="mdi-content-send"></i>
                     Absenden
                 </a>
@@ -24,8 +24,39 @@
 
 
 
+<div class="panel panel-primary" id="guestbookContainer">
+    <div class="panel-heading">
+        <h3 class="panel-title">Gästebucheinträge</h3>
+    </div>
+    <div class="panel-body"></div>
+    <div ng-repeat="entry in gbentries |limitTo:gblimit"  class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i>{{entry.name | limitTo: 3}}</i>
+            </div>
+            <div class="row-content">
+                <div class="least-content">15m</div>
+                <h4 class="list-group-item-heading">{{entry.name}}</h4>
+                <p ng-bind-html="entry.text" class="list-group-item-text"></p>
+            </div>
+        </div>
+        <div class="list-group-separator"></div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+        <div class="col-lg-1 col-md-2 col-sm-">
+            <a ng-click="moreEntries()" class="btn btn-default btn-fab btn-raised mdi-navigation-expand-more"></a>
+        </div>
+        <div class="col-lg-11 col-md-10 hidden-sm hidden-xs">
+            <h4>Mehr Einträge laden</h4>
+        </div>
+            </div>
+    </div>
+</div>
 
 
+
+<!--
 <div ng-repeat="entry in gbentries |limitTo:gblimit" class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">{{entry.name}}</h3>
@@ -35,3 +66,4 @@
     </div>
 </div>
 <a ng-click="moreEntries()" class="btn btn-default btn-fab btn-raised mdi-navigation-expand-more"></a>
+-->

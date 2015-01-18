@@ -22,14 +22,20 @@ var config = {
             "REST" : "//DOMAIN:PORT/api/images",
             "rootPath"  : "//DOMAIN:PORT/images"
         }
+    ],
+    "rssFeeds" : [
+        {
+            "id" : generateID(),
+            "title": "Postillon",
+            "url": "http://feeds.feedburner.com/blogspot/rkEL",
+        }
     ]
 }
 
-function generateClientID (){
+function generateID (){
     var clientID ="";
     for(var i = 0; i < 23; i++){
         clientID += Math.floor(Math.random()*10);
     }
-    console.log("generating new clientID...", clientID);
     return clientID;
 }
