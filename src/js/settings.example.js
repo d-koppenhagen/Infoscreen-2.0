@@ -15,7 +15,14 @@ var config = {
     },
     "weather": {
         "location" : "2879139"
-    }
+    },
+    "restServices": [
+        {
+            "name"  : "imageServer",
+            "REST" : "//DOMAIN:PORT/api/images",
+            "rootPath"  : "//DOMAIN:PORT/images"
+        }
+    ]
 }
 
 function generateClientID (){

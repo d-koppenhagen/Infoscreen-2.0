@@ -18,5 +18,31 @@ This the new version of my WG-Screen WebApp using AngularJS.
 - move file from the folder '/src/php/dbConfig.example.php' to '/src/php/dbConfig.php'
 - (edit the setting file)
 
+## image provider
+- in the settings.js you could configure a server which should give you a response like that:
+[
+  {
+    "title": "1",
+    "description": "",
+    "image": [
+      {
+        "kind": "picture",
+        "url": "1.png"
+      }
+    ]
+  },
+  {
+    "title": "Dfsfa",
+    "description": "",
+    "image": [
+      {
+        "kind": "picture",
+        "url": "neu/Dfsfa.jpg"
+      }
+    ]
+  }
+]
+
+
 ## How it looks like? ##
 - a preview of the project is available on: http://1111101.eu/
