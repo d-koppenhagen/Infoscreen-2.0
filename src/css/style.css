@@ -24,5 +24,14 @@
     border-bottom: none !important;
 }
 
+.noUi-connect#red{
+    background: rgb(242,66,8);
+}
+.noUi-connect#green{
+    background: rgb(95,169,26);
+}
+.noUi-connect#blue{
+    background: rgb(44,72,228);
+}
 
 <!-- ./summernote style -->

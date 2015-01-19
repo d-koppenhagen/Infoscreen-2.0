@@ -26,7 +26,17 @@
                         decimals: 0
                     })
                 });
-
+                getInitColors();
+                function getInitColors(){
+                    var colorVal = $("body").css("background-color");
+                    $scope.currentColor = colorVal ;
+                    var rgb = /rgb\((\d+), (\d+), (\d+)\)/.exec(colorVal);
+                    console.log("current background color: ", $scope.currentColor);
+                    $('#red').val(rgb[1]);
+                    $('#green').val(rgb[2]);
+                    $('#blue').val(rgb[3]);
+                    setColor();
+                }
                 // Bind the color changing function
                 // to the slide event.
                 $('#colorpicker .sliders').on('slide', setColor);
