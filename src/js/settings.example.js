@@ -29,13 +29,11 @@ var config = {
             "title": "Postillon",
             "url": "http://feeds.feedburner.com/blogspot/rkEL",
         }
-    ]
-}
-
-function generateID (){
-    var clientID ="";
-    for(var i = 0; i < 23; i++){
-        clientID += Math.floor(Math.random()*10);
+    ],
+    "gallery" : {
+        "credentials": {
+            "user": "USERNAME",
+            "pass": "PASSWORD"
+        }
     }
-    return clientID;
 }

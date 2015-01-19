@@ -1,7 +1,7 @@
 <div class="row">
   <div ng-repeat="thumb in gallery track by $index" class="col-xs-6 col-md-3">
     <a ng-click="openImageModal()" class="thumbnail">
-      <img data-src="{{path}}/{{thumb.image[0].url}}" src="" alt="">
+      <img data-src="{{path}}/{{thumb.image[0].url}}" src="" alt="" class="embed-responsive-item">
     </a>
   </div>
 </div>
