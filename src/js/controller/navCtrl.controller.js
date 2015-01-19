@@ -6,11 +6,11 @@
         .controller('navCtrl', function( $scope, $timeout, $location, $window ) {
 
         $scope.date = new Date();
-                          var tick = function() {
-                            $scope.date = new Date();
-                            $timeout(tick, 1000);
-                          };
-                         $timeout(tick, 1000);
+        var tick = function () {
+            $scope.date = new Date();
+            $timeout(tick, 1000);
+        };
+        $timeout(tick, 1000);
 
         $scope.navItem = {
             selectedIndex : 0,
@@ -35,13 +35,12 @@
         $scope.tabSelect = function(destination){
             $location.path(destination);
         };
-        $scope.wlanSSID = config.wlan.name;
-        $scope.wlanKey = config.wlan.key;
 
         $scope.reloadPage = function (){
             //$location.path('/');
             $window.location.reload();
         };
+
       });
 
 }());
