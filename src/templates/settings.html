@@ -2,62 +2,141 @@
 
 <form>
     <fieldset>
+        <!-- Style -->
+        <legend>Hintergrundfarbe</legend>
+        <div class="form-group">
+            <div class="col-md-8 col-sm-8 col-xs-8" id="colorpicker">
+                <div class="sliders shor" id="red"></div>
+                <div class="sliders shor" id="green"></div>
+                <div class="sliders shor" id="blue"></div>
+
+                <a ng-click="toggleMode(currentColor)" class="btn btn-primary btn-raised" data-toggle=snackbar data-content="Die Hintergrundfarbe wurde auf {{currentColor}} gesetzt"> Farbeinstellung speichern <i class="mdi-content-save"></i>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Farbe<span class="hidden-xs">: {{currentColor}}</span>
+                    </div>
+                    <div class="panel-body result embed-responsive embed-responsive-4by3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+
+<hr>
+
+
+<form>
+    <fieldset>
+        <!-- Style -->
+        <legend>Wetter-Widget</legend>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-11 col-sm-11 col-xs-10">
+                    <label for="cityIDinput">City-ID</label>
+                    <div class="input-group  col-lg-12 col-sm-12 col-xs-12">
+                        <input ng-model="newCityID" ng-minlength="6" ng-maxlength="7" type="text" class="form-control input-lg" id="cityIDinput" placholder="12345">
+                    </div>
+                </div>
+                <div class="col-lg-1 col-sm-1 col-xs-2">
+                    <a ng-click="changeCity(newCityID)" class="btn btn-primary btn-fab btn-raised mdi-content-save pull-right" data-toggle=snackbar data-content="Die OrtsID wurde auf {{newCityID}} gesetzt"></a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+
+<hr>
+
+
+<form>
+    <fieldset>
         <!-- Abfahrtsmonitor -->
         <legend>Abfahrtsmonitor</legend>
         <div class="form-group">
-            <label for="selectMaxStations">Anzahl der Verbindungen: <span id="selectMaxStationsLabel">{{currentStationValue | number:0}}</span></label>
+            <label for="selectMaxStations">Anzahl der Verbindungen: <span id="selectMaxStationsLabel">{{currentStationValue | number:0}}</span>
+            </label>
             <div class="sliders" id="selectMaxStationsSlider" data-toggle=snackbar data-content="Es werden nun {{currentStationValue | number:0}} Verbindungen angezeigt"></div>
         </div>
         <div class="form-group">
-            <label for="hfasIDsInput">Hafas IDs:</label>
-            <div class="input-group">
-                <input ng-model="newStationID" ng-minlength="5" ng-maxlength="5" type="text" class="form-control input-lg" id="hfasIDsInput" placholder="12345">
-                <span class="input-group-addon">
-                    <a ng-click="storeNewHafasID(newStationID)" class="btn btn-primary btn-fab btn-raised mdi-content-save" data-toggle=snackbar data-content="Eine neue Haltestelle wurde hinzugefügt!"></a>
-                </span>
-            </div>
-            <p>Aktuelle Stationen (IDs):</p>
-                <div ng-repeat="id in hafasids" class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                    <div class="alert alert-dismissable alert-info">
-                        <a ng-click="deleteStation(id)" type="button" class="close">×</a>{{id}}
+            <div class="row">
+                <div class="col-lg-11 col-sm-11 col-xs-10">
+                    <label for="hfasIDsInput">Hafas IDs:</label>
+                    <div class="input-group col-lg-12 col-sm-12 col-xs-12">
+                        <input ng-model="newStationID" ng-minlength="5" ng-maxlength="5" type="text" class="form-control input-lg" id="hfasIDsInput" placholder="12345">
                     </div>
                 </div>
+                <div class="col-lg-1 col-sm-1 col-xs-2">
+                    <a ng-click="storeNewHafasID(newStationID)" class="btn btn-primary btn-fab btn-raised mdi-content-save pull-right" data-toggle=snackbar data-content="Eine neue Haltestelle wurde hinzugefügt!"></a>
+                </div>
+            </div>
+            <p>Aktuelle Stationen (IDs):</p>
+            <div ng-repeat="id in hafasids" class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="alert alert-dismissable alert-info">
+                    <a ng-click="deleteStation(id)" type="button" class="close">×</a>{{id}}
+                </div>
+            </div>
         </div>
+    </fieldset>
+</form>
 
 
+<hr>
+
+
+<form>
+    <fieldset>
         <!-- Gästebuch -->
         <legend>Gästebuch</legend>
         <div class="form-group">
-            <label for="selectMaxGBEntries">Anzahl der Gästebucheinträge: <span id="selectMaxGBLabel">{{currentGBvalue | number:0}}</span></label>
+            <label for="selectMaxGBEntries">Anzahl der Gästebucheinträge: <span id="selectMaxGBLabel">{{currentGBvalue | number:0}}</span>
+            </label>
             <div class="sliders" id="selectMaxGBEntries" data-toggle=snackbar data-content="Es werden nun {{currentGBvalue | number:0}} Gästebucheinträge angezeigt"></div>
         </div>
+    </fieldset>
+</form>
 
 
-        <!-- Abfahrtsmonitor -->
+<hr>
+
+
+<form>
+    <fieldset>
+        <!-- RSS Feeds -->
         <legend>RSS-Feeds</legend>
         <div class="form-group">
-            <label for="selectMaxStations">Anzahl der Feeds: <span id="selectMaxStationsLabel">{{currentFeedValue | number:0}}</span></label>
+            <label for="selectMaxStations">Anzahl der Feeds: <span id="selectMaxStationsLabel">{{currentFeedValue | number:0}}</span>
+            </label>
             <div class="sliders" id="selectMaxFeedSlider" data-toggle=snackbar data-content="Es werden nun {{currentFeedValue | number:0}} Feedeinträge angezeigt"></div>
         </div>
         <div class="form-group">
-            <label for="feedNameinput">Feedname:</label>
-            <div class="input-group">
-                <input ng-model="newRSSfeedName" required type="text" class="form-control input-lg" id="feedNameinput" placholder="My Feed">
-            </div>
-            <label for="feedURLinput">RSS-Feed-URL:</label>
-            <div class="input-group">
-                <input ng-model="newRSSfeedURL" required type="url" class="form-control input-lg" id="feedURLinput" placholder="http://yourFavoriteFeed.com/feed/">
-                <span class="input-group-addon">
-                    <a ng-click="storeNewFeed(newRSSfeedName, newRSSfeedURL)" class="btn btn-primary btn-fab btn-raised mdi-content-save"  data-toggle=snackbar data-content="Ein neuer Feed wurde hinzugefügt!"></a>
-                </span>
-            </div>
-            <p>Aktuelle RSS-Feeds:</p>
-                <div ng-repeat="feed in rssFeeds track by $index" class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                    <div class="alert alert-dismissable alert-info">
-                        <a ng-click="deleteRSSFeed(feed.id)" type="button" class="close">×</a>{{feed.title}}
+            <div class="row">
+                <div class="col-lg-8 col-sm-10 col-xs-12">
+                    <label for="feedURLinput">RSS-Feed-URL:</label>
+                    <div class="input-group col-lg-12 col-sm-12 col-xs-10">
+                        <input ng-model="newRSSfeedURL" required type="url" class="form-control input-lg" id="feedURLinput" placholder="http://yourFavoriteFeed.com/feed/">
                     </div>
                 </div>
+                <div class="col-lg-3 col-sm-10 col-xs-10">
+                    <label for="feedNameinput">Feedname:</label>
+                    <div class="input-group col-lg-12 col-sm-12 col-xs-12">
+                        <input ng-model="newRSSfeedName" required type="text" class="form-control input-lg" id="feedNameinput" placholder="My Feed">
+                    </div>
+                </div>
+                <div class="col-lg-1 col-sm-2 col-xs-2">
+                    <a ng-click="storeNewFeed(newRSSfeedName, newRSSfeedURL)" class="btn btn-primary btn-fab btn-raised mdi-content-save pull-right" data-toggle=snackbar data-content="Ein neuer Feed wurde hinzugefügt!"></a>
+                </div>
+            </div>
         </div>
-
+        <p>Aktuelle RSS-Feeds:</p>
+        <div ng-repeat="feed in rssFeeds track by $index" class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+            <div class="alert alert-dismissable alert-info">
+                <a ng-click="deleteRSSFeed(feed.id)" type="button" class="close">×</a>{{feed.title}}
+            </div>
+        </div>
     </fieldset>
 </form>

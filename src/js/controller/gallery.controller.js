@@ -18,6 +18,10 @@
                     $scope.gallery = data;
                 }
 
+                $scope.openImageModal = function (){
+
+                }
+
         }]);
 }());
 
