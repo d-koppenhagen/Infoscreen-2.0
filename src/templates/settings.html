@@ -5,21 +5,20 @@
         <!-- Style -->
         <legend>Hintergrundfarbe</legend>
         <div class="form-group">
-            <div class="col-md-8" id="colorpicker">
+            <div class="col-md-8 col-sm-8 col-xs-8" id="colorpicker">
                 Rot  <div class="sliders shor" id="red"></div>
                 Grün <div class="sliders shor" id="green"></div>
                 Blau <div class="sliders shor" id="blue"></div>
+
+                <a ng-click="toggleMode(currentColor)" class="btn btn-primary btn-raised" data-toggle=snackbar data-content="Die Hintergrundfarbe wurde auf {{currentColor}} gesetzt"> Farbeinstellung speichern <i class="mdi-content-save"></i>
+                </a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="panel panel-default">
-                  <div class="panel-heading">Farbe: {{currentColor}}</div>
+                  <div class="panel-heading">Farbe<span class="hidden-xs">: {{currentColor}}</span></div>
                   <div class="panel-body result embed-responsive embed-responsive-4by3">
                   </div>
                 </div>
-
-                <a ng-click="toggleMode(currentColor)" class="btn btn-primary btn-fab btn-raised mdi-content-save" data-toggle=snackbar data-content="Die Hintergrundfarbe wurde auf {{currentColor}} gesetzt">
-                </a>
-
             </div>
         </div>
 
