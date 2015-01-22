@@ -29,7 +29,7 @@
         <h3 class="panel-title">Gästebucheinträge</h3>
     </div>
     <div class="panel-body"></div>
-    <div ng-repeat="entry in gbentries |limitTo:gblimit"  class="list-group">
+    <div ng-repeat="entry in gbentries|limitTo:gblimit"  class="list-group">
         <div class="list-group-item">
             <div class="row-action-primary">
                 <i>{{entry.name | limitTo: 3}}</i>
@@ -53,17 +53,3 @@
             </div>
     </div>
 </div>
-
-
-
-<!--
-<div ng-repeat="entry in gbentries |limitTo:gblimit" class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{entry.name}}</h3>
-    </div>
-    <div class="panel-body">
-        <div ng-bind-html="entry.text"></div>
-    </div>
-</div>
-<a ng-click="moreEntries()" class="btn btn-default btn-fab btn-raised mdi-navigation-expand-more"></a>
--->
