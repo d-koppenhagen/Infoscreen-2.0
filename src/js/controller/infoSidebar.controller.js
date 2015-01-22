@@ -13,7 +13,6 @@
 
 
                 function getWeatherData() {
-                    console.log("getting new weather data:");
                     $http.get('http://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&units=metric&lang=DE_de&cnt=5')
                         .success(insertData)
                         .error(function(data, status, headers, config) {
@@ -22,7 +21,7 @@
                 }
 
                 function insertData (data) {
-
+                    console.log("getting new weather data:", data);
                         $scope.cityname = data.city.name;
                         $scope.currentTemp = JSON.stringify(data.list[0].main.temp).replace(".",",");
 
