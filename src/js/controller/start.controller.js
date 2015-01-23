@@ -3,8 +3,8 @@
     "use strict";
 	angular
 		.module('wgscreen')
-        .controller('startCtrl', ['$scope', '$routeParams',
-            function($scope, $routeParams, $http) {
+        .controller('startCtrl', ['$scope', '$routeParams', '$location','$window',
+            function($scope, $routeParams, $http, $location, $window) {
                 console.log('open start page...');
                 $scope.wlanSSID = config.wlan.name;
                 $scope.wlanKey = config.wlan.key;
@@ -18,6 +18,7 @@
                         initWebRTC();
                     } else {
                         localStorage.setItem("Autostart_WebRTC", "false");
+                        document.location.reload();
                     }
                 }
         }]);
