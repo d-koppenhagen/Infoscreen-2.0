@@ -11,6 +11,8 @@
 
                 $scope.changeWebRTCState = function() {
                     $("#toggleWebRTCStateBtn").toggleClass("btn-default, btn-success");
+                    $("#callFeedbackAlert").toggleClass("hidden");
+                    $('#ownVideoContainer').toggleClass('hidden');
                     if ($("#toggleWebRTCStateBtn").hasClass("btn-success")){
                         localStorage.setItem("Autostart_WebRTC", "true");
                         initWebRTC();
