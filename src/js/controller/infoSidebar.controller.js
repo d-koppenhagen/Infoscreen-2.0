@@ -3,20 +3,25 @@
     "use strict";
 	angular
 		.module('wgscreen')
-        .controller('infoSidebarCtrl', ['$scope', '$http', '$timeout' ,
-            function($scope, $http, $timeout) {
+        .controller('infoSidebarCtrl', ['$scope', '$http', '$timeout', '$interval' ,
+            function($scope, $http, $timeout, $interval) {
                 console.log('open infobar-controller...');
                 var cityID = localStorage.getItem("weather_location");
-                $http.get('http://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&units=metric&lang=DE_de&cnt=5')
-                    .success(insertData)
-                    .error(function(data, status, headers, config) {
-                        console.log("Error by getting data", data, status, headers, config);
-                    });
+
+                getWeatherData();
+                $interval( getWeatherData, 1200000); //refresh every 20min
+
+
+                function getWeatherData() {
+                    $http.get('http://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&units=metric&lang=DE_de&cnt=5')
+                        .success(insertData)
+                        .error(function(data, status, headers, config) {
+                            console.log("Error by getting data", data, status, headers, config);
+                        });
+                }
 
                 function insertData (data) {
-                        console.log("get weather data: ", data);
-
-
+                    console.log("getting new weather data:", data);
                         $scope.cityname = data.city.name;
                         $scope.currentTemp = JSON.stringify(data.list[0].main.temp).replace(".",",");
 
