@@ -47,6 +47,10 @@
 				templateUrl: 'templates/settings.html',
                 controller: 'settingCtrl',
 			}).
+			when('/shopping', {
+				templateUrl: 'templates/shopping.html',
+                controller: 'shoppingCtrl',
+			}).
             otherwise({
                 templateUrl: 'templates/start.html',
             });
