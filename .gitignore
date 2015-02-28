@@ -4,3 +4,5 @@
 /src/js/settings.js
 /src/php/dbConfig.php
 /src/img/**
+/picAPI/node_modules/**
+/picAPI/images/**
