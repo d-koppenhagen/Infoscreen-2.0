@@ -4,12 +4,12 @@
     </div>
     <div class="panel-body"></div>
 
-    <div ng-repeat="listItem in items track by $index">
+    <div ng-repeat="listItem in items">
         <div class="list-group">
             <div class="list-group-item">
                 <div class="row-action-primary checkbox">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" checklist-model="{{listItem._id}}" checklist-value="selectedVal">
                     </label>
                 </div>
                 <div class="row-content">

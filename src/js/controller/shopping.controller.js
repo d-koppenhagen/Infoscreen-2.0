@@ -7,6 +7,8 @@
             function($scope, $routeParams, $http) {
                 console.log('open shopping page...');
 
+                $.material.init();
+                
                 getShoppingListData();
                 function getShoppingListData(){
                     console.log(config.shoppingList.ressourcePath);
@@ -17,10 +19,11 @@
                     });
 
                     function insertShoppingList (data){
+                        console.log("received Data from API: ", data);
                         $scope.items = data;
                     }
                 }
-                $.material.checkbox();
+                
 
         }]);
 }());
