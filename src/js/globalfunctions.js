@@ -14,12 +14,18 @@ function initWebRTC() {
     });
     webrtc.on('message', function () {
         console.log("a answer received, changing path...");
+        /*
+            todo: ring
+        */
+        $('#ringingSound').play();
+
         $("#remoteVideoPanel").removeClass("hidden");
         $("#ownVideoContainer").removeClass("hidden");
         //$location.path( "/call" );
     });
 
     webrtc.on('videoAdded', function (video, peer) {
+
         console.log('video added', peer);
         var remotes = document.getElementById('remotes');
         if (remotes) {
