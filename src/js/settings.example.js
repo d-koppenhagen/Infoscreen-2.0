@@ -14,6 +14,7 @@ var config = {
         "max_entries" : "8"
     },
     "weather": {
+        "apikey": "YOUR_OPENWEATHER.COM_API_KEY",
         "location" : "2879139"
     },
     "restServices": [
@@ -35,5 +36,8 @@ var config = {
             "user": "USERNAME",
             "pass": "PASSWORD"
         }
+    },
+    "shoppingList": {
+        "ressourcePath":"SERVER:PORT/RESTPATH"
     }
 }
