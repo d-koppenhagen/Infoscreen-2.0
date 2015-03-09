@@ -8,11 +8,11 @@
                 console.log('open shopping page...');
 
                 $.material.init();
-                
+
                 getShoppingListData();
                 function getShoppingListData(){
-                    console.log(config.shoppingList.ressourcePath);
-                    $http.get(config.shoppingList.ressourcePath)
+                    console.log(config.restServices[1].REST);
+                    $http.get(config.restServices[1].REST)
                         .success(insertShoppingList)
                         .error(function(data, status, headers, config) {
                         console.log("Error by getting data", data, status, headers, config);
@@ -23,7 +23,7 @@
                         $scope.items = data;
                     }
                 }
-                
+
 
         }]);
 }());

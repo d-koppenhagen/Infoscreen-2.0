@@ -16,8 +16,9 @@
 
                 function insertPictures (data){
                     console.log("getting pictures...", data);
-                    $scope.path=config.restServices[0].rootPath;
-                    $scope.gallery = data;
+                    $scope.rootPath = config.restServices[0].REST;
+                    $scope.albums = data.albums;
+                    $scope.photos = data.photos;
                 }
 
                 $scope.openImageModal = function (){

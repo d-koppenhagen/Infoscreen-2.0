@@ -18,11 +18,11 @@ var config = {
         "location" : "2879139"
     },
     "restServices": [
-        {
-            "name"  : "imageServer",
-            "REST" : "//DOMAIN:PORT/api/images",
-            "rootPath"  : "//DOMAIN:PORT/images"
-        }
+      {
+          "name"  : "imageServer",
+          "REST" :  "http://localhost:7333/gallery",
+          "apikey": "YOURAPIKEY"
+      },
     ],
     "rssFeeds" : [
         {

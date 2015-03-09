@@ -1,0 +1,12 @@
+{
+  "name": "infoscreen-gallery",
+  "version": "1.0.0",
+  "description": "a simple image gallery based on nodejs",
+  "main": "server.js",
+  "author": "Danny Koppenhagen",
+  "dependencies": {
+    "express": "^4.12.2",
+    "node-gallery": "^1.0.0",
+    "cors": "^2.5.3"
+  }
+}

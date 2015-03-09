@@ -1,13 +1,13 @@
+
+<ul class="nav nav-pills">
+    <li ng-repeat="album in albums track by $index" class="active"><a href="javascript:void(0)">{{album.name}}<!-- <span class="badge">{{42}}</span> --></a></li>
+</ul>
+<span class="help-block"></span>
 <div class="row">
-  <div ng-repeat="thumb in gallery track by $index" class="col-xs-6 col-md-3">
+  <div ng-repeat="photo in photos track by $index" class="col-xs-6 col-md-3">
     <a ng-click="openImageModal()" class="thumbnail">
-      <img data-src="{{path}}/{{thumb.image[0].url}}" src="" alt="" class="embed-responsive-item">
+      <img data-src="{{rootPath+'/'+photo.path}}" src="" alt="" class="embed-responsive-item">
+      {{photo.name}}
     </a>
   </div>
 </div>
-
-
-
-
-
-

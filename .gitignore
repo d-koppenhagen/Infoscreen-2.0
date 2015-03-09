@@ -4,5 +4,5 @@
 /src/js/settings.js
 /src/php/dbConfig.php
 /src/img/**
-/picAPI/node_modules/**
-/picAPI/images/**
+/REST_APIs/**/node_modules/**
+/REST_APIs/node-image-gallery/resources/photos/**
