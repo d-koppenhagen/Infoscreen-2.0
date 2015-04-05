@@ -3,16 +3,22 @@
     "use strict";
     angular
 		.module('wgscreen')
-        .controller('galleryCtrl', ['$scope', '$http', '$routeParams',
-            function($scope, $http, $routeParams) {
+        .controller('galleryCtrl', ['$scope', '$http', '$routeParams','$modal',
+            function($scope, $http, $routeParams, $modal) {
                 console.log('open gallery page...');
-                var queryString = config.restServices[0].REST+"?apikey="+config.restServices[0].apikey;
-                console.log(queryString);
-                 $http.get(queryString)
-                    .success(insertPictures)
-                    .error(function(data, status, headers, config) {
-                        console.log("Error by getting data", data, status, headers, config);
-                });
+
+
+                $scope.getImages = function (folder){
+                  var queryString = config.restServices[0].REST+"/"+folder+"?apikey="+config.restServices[0].apikey;
+                  console.log(queryString);
+                   $http.get(queryString)
+                      .success(insertPictures)
+                      .error(function(data, status, headers, config) {
+                          console.log("Error by getting data", data, status, headers, config);
+                  });
+                }
+
+                $scope.getImages("");
 
                 function insertPictures (data){
                     console.log("getting pictures...", data);
@@ -21,9 +27,45 @@
                     $scope.photos = data.photos;
                 }
 
-                $scope.openImageModal = function (){
+
+                $scope.openImageModal = function (startItem){
+                  console.log("clicked");
+
+                    var modalInstance = $modal.open({
+                      templateUrl: 'templates/modals/picture.html',
+                      
+                      controller: 'PictureModalController',
+                      size: 'lg',
+                      resolve: {
+                        items: function () {
+                          return $scope.photos;
+                        }
+                      }
+
+                    });
+
+
+                    modalInstance.result.then(function (selectedItem) {
+                      $scope.selected = selectedItem;
+                    }, function () {
+                       //$log.info('Modal dismissed at: ' + new Date());
+                    });
 
                 }
 
-        }]);
+        }])
+        .controller('PictureModalController', function ($scope, $modalInstance, items) {
+          $scope.items = items;
+          $scope.selected = {
+            item: $scope.items[0]
+          };
+
+          $scope.ok = function () {
+            $modalInstance.close($scope.selected.item);
+          };
+
+          $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+          };
+        });
 }());

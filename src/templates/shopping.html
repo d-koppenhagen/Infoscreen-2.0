@@ -1,24 +1,60 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Einkaufliste</h3>
-    </div>
-    <div class="panel-body"></div>
+  <div class="panel-heading">
+    <h3 class="panel-title">Einkaufliste</h3>
+  </div>
+  <div class="panel-body"></div>
 
-    <div ng-repeat="listItem in items">
-        <div class="list-group">
-            <div class="list-group-item">
-                <div class="row-action-primary checkbox">
-                    <label>
-                        <input type="checkbox" checklist-model="{{listItem._id}}" checklist-value="selectedVal">
-                    </label>
-                </div>
-                <div class="row-content">
-                    <div class="least-content">{{listItem.quantity}}</div>
-                    <h4 class="list-group-item-heading">{{listItem.name}}</h4>
-                    <p class="list-group-item-text">{{listItem.description}}</p>
-                </div>
-            </div>
-            <div class="list-group-separator"></div>
-        </div>
+  <div class="list-group" ng-repeat="item in items">
+    <div class="list-group-item">
+      <div class="row-action-primary checkbox">
+        <label>
+          <input ng-click="check(item)" type="checkbox" checklist-model="{{item.name}}" ng-checked="{{item.checked}}" />
+          <span class="checkbox-material">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="row-content">
+        <div class="least-content">{{item.quantity}}</div>
+        <h4 class="list-group-item-heading">{{item.name}}</h4>
+        <p class="list-group-item-text">{{item.description}}</p>
+      </div>
     </div>
+    <div class="list-group-separator"></div>
+  </div>
+
+
+  <div class="panel-body">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="itemName" class="col-md-2">Name</label>
+        <div class="col-md-6">
+          <input ng-model="newItem.name" type="text" class="form-control input-lg" id="itemName" placeholder="z.B. Bier">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="itemQuantity" class="col-md-2">Menge</label>
+        <div class="col-md-2">
+          <input ng-model="newItem.quantity" type="text" class="form-control input-lg" id="itemQuantity" placeholder="1">
+        </div>
+      </div>
+      <button ng-click="addItem()" class="btn btn-primary btn-fab btn-raised mdi-content-add pull-right"></button>
+    </form>
+  </div>
+
+  <div class="panel-footer">
+    <a ng-click="checkAll()" class="btn btn-primary btn-raised">
+      <span class="mdi-toggle-check-box"></span>
+      Alle auswählen
+    </a>
+    <a ng-click="uncheckAll()" class="btn btn-primary btn-raised">
+      <span class="mdi-toggle-check-box-outline-blank"></span>
+      Alle abwählen
+    </a>
+    <a ng-click="removeItems()" class="btn btn-primary btn-raised">
+      <span class="mdi-navigation cancel"></span>
+      Erledigte Einträge löschen
+    </a>
+  </div>
 </div>

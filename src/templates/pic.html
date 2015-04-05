@@ -1,6 +1,9 @@
 
 <ul class="nav nav-pills">
-    <li ng-repeat="album in albums track by $index" class="active"><a href="javascript:void(0)">{{album.name}}<!-- <span class="badge">{{42}}</span> --></a></li>
+    <li ng-repeat="album in albums track by $index" class="active">
+      <a ng-click="getImages(album.name)">{{album.name}}<!-- <span class="badge">{{42}}</span> -->
+      </a>
+    </li>
 </ul>
 <span class="help-block"></span>
 <div class="row">

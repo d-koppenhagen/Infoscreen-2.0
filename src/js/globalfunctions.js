@@ -1,3 +1,4 @@
+/*
 function initWebRTC() {
     var webrtc = new SimpleWebRTC({
         // the id/element dom element that will hold "our" video
@@ -14,9 +15,7 @@ function initWebRTC() {
     });
     webrtc.on('message', function () {
         console.log("a answer received, changing path...");
-        /*
-            todo: ring
-        */
+
         $('#ringingSound').play();
 
         $("#remoteVideoPanel").removeClass("hidden");
@@ -87,3 +86,4 @@ function generateID() {
 $(".close").click(function () {
     $(this).parent().parent().addClass('hidden');
 });
+*/
