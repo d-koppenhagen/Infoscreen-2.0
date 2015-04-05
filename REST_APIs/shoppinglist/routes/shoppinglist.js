@@ -1,118 +1,69 @@
-var mongo = require('mongodb');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/shoppinglist');
 
-var Server = mongo.Server,
-    Db = mongo.Db,
-    BSON = mongo.BSONPure;
-
-var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('shoppingdb', server);
-
-db.open(function(err, db) {
-    if(!err) {
-        console.log("Connected to 'shoppingdb' database");
-        db.collection('lists', {strict:true}, function(err, collection) {
-            if (err) {
-                console.log("The 'lists' collection doesn't exist. Creating it with sample data...");
-                populateDB();
-            }
-        });
-    }
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  console.log('opened database');
 });
+
+var itemSchema = mongoose.Schema({
+    name: String,
+    quantity: String,
+    checked: Boolean,
+    description: String
+});
+var listItem = mongoose.model('listItem', itemSchema);
 
 exports.findById = function(req, res) {
     var id = req.params.id;
-    console.log('Retrieving list: ' + id);
-    db.collection('lists', function(err, collection) {
-        collection.findOne({'_id':new BSON.ObjectID(id)}, function(err, item) {
-            res.send(item);
-        });
+    listItem.findOne({'_id': id}, function(err, item) {
+        res.send(item);
     });
 };
 
 exports.findAll = function(req, res) {
-    db.collection('lists', function(err, collection) {
-        collection.find().toArray(function(err, items) {
-            console.log(items);
-            res.send(items);
-        });
+    listItem.find('', function(err, items) {
+        console.log(items);
+        res.send(items);
     });
 };
 
 exports.add = function(req, res) {
-    var item = req.body;
-    console.log('Adding list: ' + JSON.stringify(item));
-    db.collection('lists', function(err, collection) {
-        collection.insert(item, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred'});
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]);
-            }
-        });
+    var item = new listItem(req.body);
+
+    item.save(function (err, item) {
+      if (err) return res.send({'error':'An error has occurred'});
+      res.send('success');
     });
 }
 
 exports.update = function(req, res) {
     var id = req.params.id;
     var item = req.body;
-    console.log('Updating list: ' + id);
-    console.log(JSON.stringify(item));
-    db.collection('lists', function(err, collection) {
-        collection.update({'_id':new BSON.ObjectID(id)}, item, {safe:true}, function(err, result) {
-            if (err) {
-                console.log('Error updating list: ' + err);
-                res.send({'error':'An error has occurred'});
-            } else {
-                console.log('' + result + ' document(s) updated');
-                res.send(item);
-            }
-        });
+
+    console.log('Updating item: ' + id);
+    console.log(item);
+    listItem.findOneAndUpdate({_id: id}, item, function(err, data) {
+      if (err) return res.send(500, { error: err });
+      return res.send("succesfully edited");
     });
 }
 
 exports.delete = function(req, res) {
     var id = req.params.id;
-    console.log('Deleting list: ' + id);
-    db.collection('lists', function(err, collection) {
-        collection.remove({'_id':new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred - ' + err});
-            } else {
-                console.log('' + result + ' document(s) deleted');
-                res.send(req.body);
-            }
-        });
+    console.log('Deleting Item: ' + id);
+    listItem.remove({'_id': id}, function(err, data) {
+      if (err) return res.send(500, { error: err });
+      return res.send("succesfully removed");
     });
 }
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-// Populate database with sample data -- Only used once: the first time the application is started.
-// You'd typically not find this code in a real-life app, since the database would already exist.
-var populateDB = function() {
-
-    var wines = [
-    {
-        name: "CHATEAU DE SAINT COSME",
-        year: "2009",
-        grapes: "Grenache / Syrah",
-        country: "France",
-        region: "Southern Rhone",
-        description: "The aromas of fruit and spice...",
-        picture: "saint_cosme.jpg"
-    },
-    {
-        name: "LAN RIOJA CRIANZA",
-        year: "2006",
-        grapes: "Tempranillo",
-        country: "Spain",
-        region: "Rioja",
-        description: "A resurgence of interest in boutique vineyards...",
-        picture: "lan_rioja.jpg"
-    }];
-
-    db.collection('shoppinglists', function(err, collection) {
-        collection.insert(items, {safe:true}, function(err, result) {});
+exports.deleteAll = function(req, res) {
+    var id = req.params.id;
+    console.log('Deleting Item: ' + id);
+    listItem.remove({}, function(err, data) {
+      if (err) return res.send(500, { error: err });
+      return res.send("All items succesfully removed");
     });
-
-};
+}
