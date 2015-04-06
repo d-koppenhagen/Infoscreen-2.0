@@ -1,5 +1,8 @@
 
-<!--Style for Atom Feed parser-->
+[class^=mdi-], [class*=mdi-] {
+  font: normal normal normal 14px/1 'Material-Design-Icons';
+}
+/* Style for Atom Feed parser */
 
 #feedWrapper h4.media-heading a {
     text-decoration: none !important;
@@ -12,9 +15,9 @@
 #feedWrapper a[href *= "http://feeds.feedburner.com/~ff"]{
     visibility: hidden;
 }
-<!--End: Style for Atom Feed parser-->
+/* End: Style for Atom Feed parser */
 
-<!-- summernote style -->
+/* summernote style */
 .note-editor {
     border: none !important;
 }
@@ -34,4 +37,4 @@
     background: rgb(44,72,228);
 }
 
-<!-- ./summernote style -->
+/* ./summernote style */
