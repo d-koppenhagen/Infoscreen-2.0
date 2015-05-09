@@ -3,6 +3,5 @@
 # Example .gitignore files: https://github.com/github/gitignore
 /src/js/settings.js
 /src/php/dbConfig.php
-/src/img/**
 /REST_APIs/**/node_modules/**
 /REST_APIs/node-image-gallery/resources/photos/**
