@@ -22,7 +22,9 @@
                         'min': 0,
                         'max': 255
                     },
+
                     format: wNumb({
+                        mark: ',',
                         decimals: 0
                     })
                 });
