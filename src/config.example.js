@@ -7,3 +7,6 @@ exports.mysqlGBcred = {
   user     : 'USERNAME',
   password : 'PASSWORD'
 };
+
+exports.shoppinglist_db = 'mongodb://localhost/shoppinglist';
+exports.guestbook_db = 'mongodb://localhost/guestbook';
