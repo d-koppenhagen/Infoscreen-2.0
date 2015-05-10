@@ -1,4 +1,4 @@
-/*
+
 function initWebRTC() {
     var webrtc = new SimpleWebRTC({
         // the id/element dom element that will hold "our" video
@@ -86,4 +86,3 @@ function generateID() {
 $(".close").click(function () {
     $(this).parent().parent().addClass('hidden');
 });
-*/

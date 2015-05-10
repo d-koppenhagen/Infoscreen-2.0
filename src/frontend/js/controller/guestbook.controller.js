@@ -9,12 +9,13 @@
 
                 refreshGB();
                 function refreshGB(){
-                    $http.get('php/getGuestbookData.php')
+                    $http.get('/guestbook')
                         .success(insertGBData)
                         .error(function(data, status, headers, config) {
                         console.log("Error by getting data", data, status, headers, config);
                     });
                 }
+
                 $scope.sendGBentry = function (){
                     console.log("sending data...");
                     var msg = $('#summernote').code();
@@ -25,7 +26,7 @@
                         "message": msg
                     };
 
-                    $http.post('php/gbentry.php', dataObj)
+                    $http.post('/guestbook', dataObj)
                             .success(callback)
                             .error(function(data, status, headers, config) {
                             console.log("Error by getting guestbook data", data, status, headers, config);
@@ -46,8 +47,6 @@
                     console.log("loading more entries...");
                     $scope.gblimit = parseInt($scope.gblimit)+5;
                 };
-
-
 
 
                 function insertGBData (data) {
