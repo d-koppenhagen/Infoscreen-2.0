@@ -4,8 +4,8 @@
  if [ ! -d "/var/run/" ]; then
      echo "Folder doesn't exist, created Folder: /var/log/"
      mkdir /var/run/
- fi
- [ ! -d "/var/log/" ]; then
+ fi 
+ if [ ! -d "/var/log/" ]; then
      echo "Folder doesn't exist, created Folder: /var/log/"
      mkdir /var/log/
  fi
