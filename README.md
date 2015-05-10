@@ -25,6 +25,26 @@ This the new version of my WG-Screen WebApp using NodeJS and AngularJS.
     - run `sudo ./createInitScript.sh`
     - this will copy the file `infoscreen`to your `/etc/init.d` directory and make it excecutable
     - now you can start the infoscreen with `sudo service infoscreen start` (there are also the options `restart`, `stop` and `status`)
+4. (optional) you can configure ar `VirtualHost` for apache, etc. like that:
+```
+<VirtualHost *:80>
+    ServerAdmin yourMail@domain.com
+    ServerName YOURSERVERNAME
+    ServerAlias infoscreen.YOURDOMAIN.com
+
+    ProxyRequests off
+
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    <location />
+        ProxyPass http://localhost:3000/
+        ProxyPassReverse http://localhost:3000/
+    </location>
+</VirtualHost>
+```
 
 ## Configuration
 - move file from the folder '/src/config.example.js' to '/src/config.js' and configure it
