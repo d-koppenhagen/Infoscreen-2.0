@@ -46,8 +46,8 @@ app.use('/gallery', nodeGallery({
 app.get('/station/:id', station.getStationInfo);
 
 /* station monitor routes */
-app.get('/guestbook/', guestbook.getGuestbookData);
-app.post('/guestbook/', guestbook.postGuestbookEntry);
+app.get('/guestbook', guestbook.getGuestbookData);
+app.post('/guestbook', guestbook.postGuestbookEntry);
 
 /* Trello login */
 app.get('/login', trello.login);
