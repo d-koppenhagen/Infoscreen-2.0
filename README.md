@@ -20,27 +20,11 @@ This the new version of my WG-Screen WebApp using NodeJS and AngularJS.
 ## How to setup
 1. clone this project and run the app with `node server.js`
 2. open the url in your browser (http://localhost:3000)
-
-- maybe you should configure a proxy in apache like that:
-```
-<VirtualHost *:80>
-    ServerAdmin admin@site.com
-    ServerName test.site.com
-    ServerAlias www.site.com
-
-    ProxyRequests off
-
-    <Proxy *>
-        Order deny,allow
-        Allow from all
-    </Proxy>
-
-    <Location />
-        ProxyPass http://test.site.com:8080/
-        ProxyPassReverse http://test.site.com:8080/
-    </Location>
-</VirtualHost>
-```
+3. create an init.d script to run the infoscreen as a service (Debian)
+    - edit the path after `APPLICATION_DIRECTORY` in the `infoscreen` file
+    - run `sudo ./createInitScript.sh`
+    - this will copy the file `infoscreen`to your `/etc/init.d` directory and make it excecutable
+    - now you can start the infoscreen with `sudo service infoscreen start` (there are also the options `restart`, `stop` and `status`)
 
 ## Configuration
 - move file from the folder '/src/config.example.js' to '/src/config.js' and configure it

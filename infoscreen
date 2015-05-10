@@ -1,10 +1,10 @@
 #!/bin/bash
- 
+
 # MyApplication
 # Maintainer: Tapas
 # Authors: tapas.mishra@linuxfunda.com
 # chkconfig: - 80 05
-  
+
 ### BEGIN INIT INFO
 # Provides:          mynodejsapplication
 # Required-Start:    $syslog $remote_fs
@@ -16,7 +16,7 @@
 # Short-Description: Script for My Node Application
 # Description:       Script for My Node Application
 ### END INIT INFO
-   
+
 # An application name to display in echo text.
 # An application name to display in echo text.
 # NAME="My Application"
@@ -32,65 +32,65 @@
 # PIDFILE=/var/run/my-application.pid
 # Log file path.
 # LOGFILE=/var/log/my-application.log
-    
-    NAME="infoscreen"
-    NODE_BIN_DIR=/usr/bin
-    NODE_PATH=/usr/local/lib/node_modules/
-    APPLICATION_DIRECTORY=/var/www/infoscreen_2_0/src
-    APPLICATION_START=server.js
-    PIDFILE=/var/run/$NAME.pid
-    LOGFILE=/var/log/$NAME.log
-     
-     PATH=$NODE_BIN_DIR:$PATH
-     export NODE_PATH=$NODE_PATH
-      
-      start() {
-                  echo "Starting $NAME"
-                          /usr/local/bin/forever --pidFile $PIDFILE --sourceDir $APPLICATION_DIRECTORY \
-                                          -a -l $LOGFILE --minUptime 5000 --spinSleepTime 2000 \
-                                                          start $APPLICATION_START &
-                                                                  RETVAL=$?
-      }
-       
-       stop() {
-                   if [ -f $PIDFILE ]; then
-                                       echo "Shutting down $NAME"
-                                                       rm -f $PIDFILE
-                                                                       RETVAL=$?
-                                                                               else
-                                                                                                   echo "$NAME is not running."
-                                                                                                                   RETVAL=0
-                                                                                                                           fi
-       }
-        
-        restart() {
-                    echo "Restarting $NAME"
-                            stop
-                                    start
-        }
-         
-         status() {
-                     echo "Status for $NAME:"
-                             /usr/local/bin/forever list
-                                     RETVAL=$?
-         }
-          
-          case "$1" in
-                  start)
-                                  start
-                                                  ;;
-                                                          stop)
-                                                                          stop
-                                                                                          ;;
-                                                                                                  status)
-                                                                                                                  status
-                                                                                                                                  ;;
-                                                                                                                                          restart)
-                                                                                                                                                          restart
-                                                                                                                                                                          ;;
-                                                                                                                                                                                  *)
-                                                                                                                                                                                                  echo "Usage: {start|stop|status|restart}"
-                                                                                                                                                                                                                  exit 1
-                                                                                                                                                                                                                                  ;;
-                                                                                                                                                                                                                                  esac
-                                                                                                                                                                                                                                  exit $RETVAL
+
+NAME="infoscreen"
+NODE_BIN_DIR=/usr/bin
+NODE_PATH=/usr/local/lib/node_modules/
+APPLICATION_DIRECTORY=/var/www/infoscreen_2_0/src
+APPLICATION_START=server.js
+PIDFILE=/var/run/$NAME.pid
+LOGFILE=/var/log/$NAME.log
+
+PATH=$NODE_BIN_DIR:$PATH
+export NODE_PATH=$NODE_PATH
+
+start() {
+        echo "Starting $NAME"
+        /usr/local/bin/forever --pidFile $PIDFILE --sourceDir $APPLICATION_DIRECTORY \
+                -a -l $LOGFILE --minUptime 5000 --spinSleepTime 2000 \
+                start $APPLICATION_START &
+        RETVAL=$?
+}
+
+stop() {
+        if [ -f $PIDFILE ]; then
+                echo "Shutting down $NAME"
+                rm -f $PIDFILE
+                RETVAL=$?
+        else
+                echo "$NAME is not running."
+                RETVAL=0
+        fi
+}
+
+restart() {
+        echo "Restarting $NAME"
+        stop
+        start
+}
+
+status() {
+        echo "Status for $NAME:"
+        /usr/local/bin/forever list
+        RETVAL=$?
+}
+
+case "$1" in
+        start)
+                start
+                ;;
+        stop)
+                stop
+                ;;
+        status)
+                status
+                ;;
+        restart)
+                restart
+                ;;
+        *)
+                echo "Usage: {start|stop|status|restart}"
+                exit 1
+                ;;
+esac
+exit $RETVAL
