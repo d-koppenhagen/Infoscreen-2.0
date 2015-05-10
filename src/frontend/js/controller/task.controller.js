@@ -13,8 +13,8 @@
                 // check if accessToken was received:
                 if (!accessToken) {
                   console.log("no query token received, redirect to login page...");
-                  var redirectUrl = "http://127.0.0.1:8080/src/#/tasks";
-                  $window.location.href="http://5.45.102.135:7799/login?redirectUrl="+redirectUrl;
+                  var redirectUrl = "/src/#/tasks";
+                  $window.location.href="/login?redirectUrl="+config.trello_redirect_uri;
                 } else {
                   console.log("Received new access Token:",accessToken);
                   var key = "12f45ac93b038c1916d0cbe250da9c62";

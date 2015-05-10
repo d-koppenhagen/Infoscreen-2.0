@@ -9,6 +9,7 @@
     "node-gallery": "*",
     "cors": "*",
     "body-parser": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "oauth": "*"
   }
 }

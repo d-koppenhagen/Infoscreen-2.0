@@ -1,17 +1,6 @@
 http = require('http');
 url = require('url');
 OAuth = require('oauth').OAuth;
-var express    = require('express');
-var app = express();
-
-//CORS middleware
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-}
-app.use(allowCrossDomain);
 
 var OAuth,
 accessURL,
@@ -43,7 +32,7 @@ secret = "1e0dfe588305d9bf46769d9ed6c9d11cc5cb88326b3a6bff18855824c7316a59";
 
 oauth_secrets = {};
 
-login = function(req, res) {
+exports.login = function(req, res) {
     var query = url.parse(req.url, true).query;
     loginCallback = query.redirectUrl;
     console.log(Date(),"new authorisation Request - redirect URL is", loginCallback);
@@ -73,8 +62,3 @@ cb = function(req, res) {
     });
 };
 */
-
-app.get('/login', login);
-app.listen(port);
-
-console.log("Server running at " + domain + ":" + port + "; hit " + domain + ":" + port + "/login");

@@ -7,11 +7,19 @@ var shoppinglist = require('./routes/shoppinglist.js');
 var gallery = require('./routes/gallery.js');
 var station = require('./routes/station.js');
 var guestbook = require('./routes/guestbook.js');
+var trello = require('./routes/trello.js');
 
 var app = express();
 var config = require("./config.js");
 
-app.use(cors({ origin: '*' }));
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
+app.use(allowCrossDomain);
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 	extended: true
@@ -40,6 +48,9 @@ app.get('/station/:id', station.getStationInfo);
 /* station monitor routes */
 app.get('/guestbook/', guestbook.getGuestbookData);
 app.post('/guestbook/', guestbook.postGuestbookEntry);
+
+/* Trello login */
+app.get('/login', trello.login);
 
 //static frontend
 app.use(express.static(__dirname + '/frontend'));
