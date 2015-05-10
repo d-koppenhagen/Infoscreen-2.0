@@ -13,7 +13,6 @@
                 // check if accessToken was received:
                 if (!accessToken) {
                   console.log("no query token received, redirect to login page...");
-                  var redirectUrl = "/src/#/tasks";
                   $window.location.href="/login?redirectUrl="+config.trello_redirect_uri;
                 } else {
                   console.log("Received new access Token:",accessToken);
