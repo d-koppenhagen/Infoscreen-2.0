@@ -9,9 +9,7 @@
 
 
                 $scope.getImages = function (folder){
-                  var queryString = config.restServices[0].REST+"/"+folder+"?apikey="+config.restServices[0].apikey;
-                  console.log(queryString);
-                   $http.get(queryString)
+                   $http.get("/gallery?apikey="+config.apikey)
                       .success(insertPictures)
                       .error(function(data, status, headers, config) {
                           console.log("Error by getting data", data, status, headers, config);
@@ -22,7 +20,7 @@
 
                 function insertPictures (data){
                     console.log("getting pictures...", data);
-                    $scope.rootPath = config.restServices[0].REST;
+                    $scope.rootPath = "/gallery";
                     $scope.albums = data.albums;
                     $scope.photos = data.photos;
                 }
@@ -33,7 +31,7 @@
 
                     var modalInstance = $modal.open({
                       templateUrl: 'templates/modals/picture.html',
-                      
+
                       controller: 'PictureModalController',
                       size: 'lg',
                       resolve: {

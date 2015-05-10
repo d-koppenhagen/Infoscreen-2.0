@@ -13,8 +13,7 @@
 
                 getShoppingListData();
                 function getShoppingListData() {
-                    console.log(config.restServices[1].REST);
-                    $http.get(config.restServices[1].REST)
+                    $http.get('/list')
                         .success(function(data){
                           console.log("received Data from API: ", data);
                           $scope.items = data;
@@ -49,7 +48,7 @@
                 };
 
                 function editData(data){
-                  $http.put(config.restServices[1].REST+'/'+data._id, data)
+                  $http.put('list/'+data._id, data)
                       .success(function(data) {
                         console.log('successfully edited');
                       })
@@ -66,7 +65,7 @@
                 }
 
                 function removeData(data){
-                  $http.delete(config.restServices[1].REST+'/'+data._id, data)
+                  $http.delete('list/'+data._id, data)
                       .success(function(data) {
                         console.log('successfully removed');
                       })
@@ -76,7 +75,7 @@
                 }
 
                 $scope.addItem = function(){
-                  $http.post(config.restServices[1].REST, $scope.newItem)
+                  $http.post('/list', $scope.newItem)
                       .success(function(data) {
                         console.log('added!');
                         getShoppingListData();

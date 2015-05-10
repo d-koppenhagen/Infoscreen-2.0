@@ -1,4 +1,12 @@
 
+function generateID (){
+    var clientID ="";
+    for(var i = 0; i < 23; i++){
+        clientID += Math.floor(Math.random()*10);
+    }
+    return clientID;
+}
+
 function initWebRTC() {
     var webrtc = new SimpleWebRTC({
         // the id/element dom element that will hold "our" video
