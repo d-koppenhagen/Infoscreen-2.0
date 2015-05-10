@@ -5,11 +5,13 @@
   "main": "server.js",
   "author": "Danny Koppenhagen",
   "dependencies": {
-    "express": "*",
-    "node-gallery": "*",
-    "cors": "*",
     "body-parser": "*",
+    "cors": "*",
+    "express": "*",
     "mongoose": "*",
-    "oauth": "*"
+    "node-gallery": "*",
+    "node-uuid": "^1.4.3",
+    "oauth": "*",
+    "socket.io": "^1.3.5"
   }
 }

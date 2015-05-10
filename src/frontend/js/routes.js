@@ -43,6 +43,10 @@
 				templateUrl: 'templates/call.html',
                 controller: 'webRTCctrl',
 			}).
+			when('/call/:roomId', {
+				templateUrl: 'templates/call.html',
+                controller: 'webRTCctrl',
+			}).
 			when('/settings', {
 				templateUrl: 'templates/settings.html',
                 controller: 'settingCtrl',

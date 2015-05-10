@@ -8,6 +8,7 @@ var gallery = require('./routes/gallery.js');
 var station = require('./routes/station.js');
 var guestbook = require('./routes/guestbook.js');
 var trello = require('./routes/trello.js');
+var webrtc = require('./routes/webrtc.js');
 
 var app = express();
 var config = require("./config.js");
@@ -51,6 +52,9 @@ app.post('/guestbook', guestbook.postGuestbookEntry);
 
 /* Trello login */
 app.get('/login', trello.login);
+
+/* WebRTC */
+app.get('/webrtc', webrtc.run);
 
 //static frontend
 app.use(express.static(__dirname + '/frontend'));
