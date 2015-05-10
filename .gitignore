@@ -1,7 +1,8 @@
 # https://git-scm.com/docs/gitignore
 # https://help.github.com/articles/ignoring-files
 # Example .gitignore files: https://github.com/github/gitignore
-/src/js/settings.js
-/src/php/dbConfig.php
-/REST_APIs/**/node_modules/**
-/REST_APIs/node-image-gallery/resources/photos/**
+/src/frontend/js/settings.js
+/src/frontend/php/dbConfig.php
+/src/**/node_modules/**
+/src/resources/photos/**
+/src/config.js
