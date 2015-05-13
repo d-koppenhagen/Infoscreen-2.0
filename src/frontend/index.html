@@ -7,16 +7,16 @@
 
   <!--  ##############  Meta Tags ############## -->
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- used to start like an app with google chrome on android: -->
-  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="mobile-web-app-capable" content="yes" />
   <!--  ##############  End: Meta Tags ############## -->
 
 
   <!--  ##############  Stylesheets ############## -->
   <!-- Favicon -->
-  <link rel="icon" href="img/favicon.ico"/>
+  <link rel="icon" href="img/favicon.ico" />
 
   <!-- Vendor Stylesheets: -->
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -36,11 +36,11 @@
   <link href="css/style.css" rel="stylesheet" />
   <!--  ##############  End: Stylesheets ############## -->
 
-
   <!-- jQuery:  -->
   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-
+  <!-- simpleWebRTC  -->
+  <script src="//simplewebrtc.com/latest.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -79,7 +79,7 @@
           </a>
         </li>
         <li class="visible-lg visible-md">
-          <a ng-click="reloadPage()" class="btn btn-default btn-fab btn-raised mdi-navigation-refresh"></a>
+          <a ng-click="reloadPage()" class="btn btn-info btn-fab btn-raised mdi-navigation-refresh"></a>
         </li>
       </ul>
     </div>
@@ -89,17 +89,32 @@
 
     <!-- Remote container for WebRTC-->
     <div class="row">
+
+        <div ng-if="isActive.me && !isActive.remote" class="alert alert-dismissable alert-success" id="callFeedbackAlert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            Die Videofunktion wurde gestartet - <strong><a href="http://call.d-koppenhagen.de" target="blank">http://call.d-koppenhagen.de</a></strong> aufrufen um zu mit mir zu telefonieren.
+        </div>
+
       <div class="col-lg-8 col-md-7">
         <div class="row">
           <div class="col-lg-4 col-md-6">
-            <div id="remotes"></div>
+
+            <div ng-if="isActive.remote" class="panel panel-primary" style="width:800px;">
+              <div class="panel-heading">
+                <button type="button" class="close" data-dismiss="ownVideoContainer">×</button>
+                <h3 class="panel-title">Video</h3>
+              </div>
+              <div class="embed-responsive embed-responsive-4by3">
+                <div id="remotesVideos"></div>
+              </div>
+            </div>
 
           </div>
         </div>
         <div ng-view></div>
       </div>
       <div class="col-lg-4 col-md-5">
-        <div id="ownVideoContainer" class="panel panel-primary hidden">
+        <div ng-if="isActive.me" id="ownVideoContainer" class="panel panel-primary">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="ownVideoContainer">×</button>
             <h3 class="panel-title">Mein Bild</h3>
@@ -108,8 +123,6 @@
             <video id="localVideo" class="embed-responsive-item"></video>
           </div>
         </div>
-
-
         <div ng-include="'templates/infobar.html'"></div>
       </div>
     </div>
@@ -156,8 +169,7 @@
   <script src="js/controller/calendar.controller.js"></script>
   <script src="js/controller/guestbook.controller.js"></script>
   <script src="js/controller/settings.controller.js"></script>
-  <script src="js/controller/webRTC.controller.js"></script>
-  <script src="js/controller/infoSidebar.controller.js"></script>
++  <script src="js/controller/infoSidebar.controller.js"></script>
   <script src="js/controller/shopping.controller.js"></script>
 
   <!-- WebRTC support-->

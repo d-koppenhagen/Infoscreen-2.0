@@ -39,10 +39,6 @@
 				templateUrl: 'templates/tasks.html',
                 controller: 'getTasks',
 			}).
-			when('/call', {
-				templateUrl: 'templates/call.html',
-                controller: 'webRTCctrl',
-			}).
 			when('/settings', {
 				templateUrl: 'templates/settings.html',
                 controller: 'settingCtrl',

@@ -1,17 +1,10 @@
-<audio id="ringingSound">
-  <source src="audio/ringing.mp3" type="audio/mp3">
-</audio>
-
-<div class="alert alert-dismissable alert-success hidden" id="callFeedbackAlert">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    Die Videofunktion wurde gestartet - <strong>http://call.doerki.com</strong> aufrufen um zu mit mir zu telefonieren.
-</div>
-
-<a ng-click="changeWebRTCState()" id="toggleWebRTCStateBtn" class="btn btn-default btn-fab btn-raised mdi-av-videocam-off pull-right"></a>
 <h1>Wilkommen in der WG 2.0 </h1>
 <p>
     Jetzt endlich mit AngularJS!
 </p>
+
+<a ng-click="changeWebRTCState()" ng-class="{'btn-success': isActive.me, 'btn-info': !isActive.me}" class="btn btn-fab btn-raised mdi-av-videocam-off pull-right"></a>
+
     <div class="list-group">
     <div class="list-group-item">
         <div class="row-action-primary">
