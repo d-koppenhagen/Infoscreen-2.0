@@ -4,13 +4,14 @@ This the new version of my WG-Screen WebApp using NodeJS and AngularJS.
 ([old](https://github.com/Doerki/wgmonitor) version)
 
 ## Freatures (some are already in development)
-- Departure Monitor for Tram (EasyGo)
-- Weather- and News-Toolbar
-- Gallery
-- Shopping List
-- Guestbook
-- Calendar
-- RSS Feeds-Reader
+* [x] Departure Monitor for Tram (EasyGo)
+* [x] Weather- and News-Toolbar
+* [x] Gallery
+* [x] Shopping List
+* [x] Guestbook
+* [x] Calendar
+* [x] RSS Feeds-Reader
+* [ ] WebRTC Audio/Video integration
 
 ## What you need
 - [NodeJS](https://nodejs.org)
@@ -18,14 +19,16 @@ This the new version of my WG-Screen WebApp using NodeJS and AngularJS.
 - [MySQL](https://www.mysql.de/) for the guestbook page
 
 ## How to setup
-1. clone this project and run the app with `node server.js`
-2. open the url in your browser (http://localhost:3000)
-3. create an init.d script to run the infoscreen as a service (Debian)
+1. clone this project
+2. go to `src` folder and run `npm install` (maybe you need to install also dependencies)
+3. run the app with `node server.js`
+4. open the url in your browser (http://localhost:3000)
+5. create an init.d script to run the infoscreen as a service (Debian)
     - edit the path after `APPLICATION_DIRECTORY` in the `infoscreen` file
     - run `sudo ./createInitScript.sh`
     - this will copy the file `infoscreen`to your `/etc/init.d` directory and make it excecutable
     - now you can start the infoscreen with `sudo service infoscreen start` (there are also the options `restart`, `stop` and `status`)
-4. (optional) you can configure ar `VirtualHost` for apache, etc. like that:
+6. (optional) you can configure ar `VirtualHost` for apache, etc. like that:
 ```
 <VirtualHost *:80>
     ServerAdmin yourMail@domain.com
