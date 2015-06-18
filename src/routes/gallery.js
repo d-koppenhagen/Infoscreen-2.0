@@ -11,7 +11,6 @@ exports.getPictures = function(req, res, next){
    req.html -> return html data
    req.data -> retrun json raw data ; you have to set 'render' to 'false'
    */
-   console.log(req.query.apikey);
    if (req.query.apikey == config.apikey) {
      console.log("received new request! - right API key.")
      return res.send(req.data);

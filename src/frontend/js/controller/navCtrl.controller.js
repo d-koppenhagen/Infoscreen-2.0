@@ -22,7 +22,7 @@
                 { name : "Bilder", value : "pic", icon : "mdi-image-camera-alt", destination: "#/pic"},
                 { name : "Feeds", value : "feed", icon : "mdi-hardware-cast", destination: "#/feeds"},
                 { name : "Gästebuch", value : "gb", icon : "mdi-content-create", destination: "#/gb"},
-                { name : "Aufgaben", value : "task", icon : "mdi-action-assignment", destination: "#/tasks"}
+                { name : "Einkaufsliste", value : "shopping", icon : "mdi-action-add-shopping-cart", destination: "#/shopping"}
             ]
         };
         $scope.next = function() {

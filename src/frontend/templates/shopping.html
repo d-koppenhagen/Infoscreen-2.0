@@ -6,13 +6,12 @@
 
   <div class="list-group" ng-repeat="item in items">
     <div class="list-group-item">
-      <div class="row-action-primary checkbox">
-        <label>
-          <input ng-click="check(item)" type="checkbox" checklist-model="{{item.name}}" ng-checked="{{item.checked}}" />
-          <span class="checkbox-material">
-            <span class="check"></span>
-          </span>
-        </label>
+      <div class="row-action-primary">
+        <div class="checkbox pull-right">
+          <label>
+            <input type="checkbox">
+          </label>
+        </div>
       </div>
 
       <div class="row-content">
