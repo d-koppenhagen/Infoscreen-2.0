@@ -7,10 +7,10 @@
 </ul>
 <span class="help-block"></span>
 <div class="row">
-  <div ng-repeat="photo in photos track by $index" class="col-xs-6 col-md-3">
+  <div ng-repeat="photo in photos track by $index" class="col-xs-6 col-md-3" style="height:210px;">
     <a ng-click="openImageModal()" class="thumbnail">
       <img data-src="{{rootPath+'/'+photo.path}}" src="" alt="" class="embed-responsive-item">
-      {{photo.name}}
+      <!--{{photo.name}}-->
     </a>
   </div>
 </div>
