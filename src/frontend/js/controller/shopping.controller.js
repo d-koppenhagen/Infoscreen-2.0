@@ -77,7 +77,8 @@ $.material.init()
                 $scope.addItem = function(){
                   $http.post('/list', $scope.newItem)
                       .success(function(data) {
-                        console.log('added!');
+                        $scope.newItem.name = '';
+                        $scope.newItem.quantity = '';
                         getShoppingListData();
                       })
                       .error(function(data, status, headers, config) {
