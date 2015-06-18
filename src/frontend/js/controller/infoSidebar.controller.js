@@ -23,7 +23,7 @@
                 function insertData (data) {
                     console.log("getting new weather data:", data);
                         $scope.cityname = data.city.name;
-                        $scope.currentTemp = JSON.stringify(data.list[0].main.temp).replace(".",",");
+                        $scope.currentTemp = data.list[0].main.temp;
 
                         $scope.weatherData = {
                             "temperatures": {

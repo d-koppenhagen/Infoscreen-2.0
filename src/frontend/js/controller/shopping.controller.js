@@ -6,7 +6,7 @@
         .controller('shoppingCtrl', ['$scope', '$routeParams','$http',
             function($scope, $routeParams, $http) {
                 console.log('open shopping page...');
-
+$.material.init()
                 $scope.newItem = {
                   'checked': false
                 }
