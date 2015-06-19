@@ -20,13 +20,11 @@ var allowCrossDomain = function(req, res, next) {
     next();
 }
 app.use(allowCrossDomain);
-app.use(bodyParser());       // to support JSON-encoded bodies
-/*
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 	extended: true
 }));
-*/
+
 
 /* shopping list routes */
 app.get('/list', shoppinglist.findAll);
@@ -48,7 +46,7 @@ app.delete('/list', shoppinglist.deleteAll);
 @param {string, optional} image.height as above
 */
 app.use('/gallery', nodeGallery({
-  staticFiles : 'resources',
+  staticFiles : 'resources/photos',
   urlRoot : 'gallery',
   title : 'Gallery',
   render : false
