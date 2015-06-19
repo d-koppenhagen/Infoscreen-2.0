@@ -5,11 +5,11 @@
   "main": "server.js",
   "author": "Danny Koppenhagen",
   "dependencies": {
-    "body-parser": "*",
-    "cors": "*",
     "express": "*",
+    "node-gallery": "*",
+    "cors": "*",
+    "body-parser": "*",
     "mongoose": "*",
-    "node-gallery": "^1.0.3",
     "oauth": "*"
   }
 }
