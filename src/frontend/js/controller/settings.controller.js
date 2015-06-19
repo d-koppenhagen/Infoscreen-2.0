@@ -6,58 +6,6 @@
             function($scope, $routeParams, $http) {
                 console.log('open Setting page...');
 
-        // change Style
-                $scope.toggleMode = function (color){
-                    console.log("Toggle Style...");
-                    $("body").css("background-color", color);
-                    //$("body").css("color", "#ffffff");
-                    //$(".list-group-item-heading").css("color", "#ffffff");
-                }
-
-                $('#colorpicker .sliders').noUiSlider({
-                    start: 127,
-                    connect: "lower",
-                    orientation: "horizontal",
-                    range: {
-                        'min': 0,
-                        'max': 255
-                    },
-
-                    format: wNumb({
-                        mark: ',',
-                        decimals: 0
-                    })
-                });
-                getInitColors();
-                function getInitColors(){
-                    var colorVal = $("body").css("background-color");
-                    $scope.currentColor = colorVal ;
-                    var rgb = /rgb\((\d+), (\d+), (\d+)\)/.exec(colorVal);
-                    console.log("current background color: ", $scope.currentColor);
-                    $('#red').val(rgb[1]);
-                    $('#green').val(rgb[2]);
-                    $('#blue').val(rgb[3]);
-                    setColor();
-                }
-                // Bind the color changing function
-                // to the slide event.
-                $('#colorpicker .sliders').on('slide', setColor);
-
-                function setColor() {
-                    // Get the slider values, stick them together.
-                    $scope.currentColor = 'rgb(' +
-                        $("#red").val() + ',' +
-                        $("#green").val() + ',' +
-                        $("#blue").val() + ')';
-
-                    // Fill the color box.
-                    $(".result").css({
-                        background: $scope.currentColor,
-                        color: $scope.currentColor
-                    });
-                }
-
-
         // change City
                 $scope.changeCity = function (id){
                     console.log("changing City to ID:", id);
@@ -170,7 +118,7 @@
                     var rssobj = {
                             "id": generateID(),
                             "title": name,
-                            "url": url,
+                            "url": url
                     }
                     rssFeedList.push(rssobj);
                     localStorage.setItem("rssFeeds",JSON.stringify(rssFeedList));
