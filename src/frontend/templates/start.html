@@ -1,59 +1,151 @@
-<h1>Wilkommen in der WG 2.0 </h1>
-<p>
-    Jetzt endlich mit AngularJS!
-</p>
-
-<a ng-click="changeWebRTCState()" ng-class="{'btn-success': isActive.me, 'btn-info': !isActive.me}" class="btn btn-fab btn-raised mdi-av-videocam-off pull-right"></a>
-
-    <div class="list-group">
-    <div class="list-group-item">
-        <div class="row-action-primary">
-            <i class="mdi-device-wifi-lock"></i>
-        </div>
-        <div class="row-content">
-            <div class="action-secondary"><i class="mdi-material-info"></i></div>
-            <h4 class="list-group-item-heading">WLAN Zugang für Gäste</h4>
-            <p class="list-group-item-text">Netzwerkname (SSID): {{wlanSSID}}Kennwort: {{wlanKey}}</p>
-        </div>
+<h1>Infoscreen 2.0</h1>
+<div class="list-group">
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="mdi-device-wifi-lock"></i>
     </div>
-
-    <div class="list-group-separator"></div>
-
-    <div class="list-group-item">
-        <div class="row-action-primary">
-            <i ng-href="#/settings" class="mdi-action-settings icon"></i>
-        </div>
-        <div class="row-content">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="action-secondary"><i class="mdi-material-info"></i></div>
-                    <h4 class="list-group-item-heading">Einstellungen</h4>
-                    <p class="list-group-item-text">WG-Screen Konfigurieren</p>
-                </div>
-                <div class="col-md-4">
-                    <a ng-href="#/settings" class="btn btn-primary btn-raised pull-right">Zu den Einstellungen <i class="mdi-navigation-arrow-forward"></i></a>
-                </div>
-            </div>
-        </div>
+    <div class="row-content">
+      <div class="action-secondary">
+        <i class="mdi-material-info"></i>
+      </div>
+      <h4 class="list-group-item-heading">WLAN Zugang für Gäste</h4>
+      <p class="list-group-item-text">Netzwerkname (SSID): {{wlanSSID}}Kennwort: {{wlanKey}}</p>
     </div>
-
-    <div class="list-group-separator"></div>
-
-    <div class="list-group-item">
-        <div class="row-action-primary">
-            <i ng-href="#/shopping" class="mdi-action-add-shopping-cart"></i>
-        </div>
-        <div class="row-content">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="action-secondary"><i class="mdi-material-info"></i></div>
-                    <h4 class="list-group-item-heading">Einkaufsliste</h4>
-                    <p class="list-group-item-text">Hier kannst du neue Einträge hinzufügen</p>
-                </div>
-                <div class="col-md-4">
-                    <a ng-href="#/shopping" class="btn btn-primary btn-raised pull-right">Zur Einkaufliste <i class="mdi-navigation-arrow-forward"></i></a>
-                </div>
-            </div>
-        </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised mdi-av-videocam-off" ng-class="{'btn-success': isActive.me, 'btn-info': !isActive.me}" ng-click="changeWebRTCState()"></a>
     </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">Anruffunktion</h4>
+          <p class="list-group-item-text">Aktivieren um ein Anruf zu ermöglichen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised btn-primary mdi-maps-directions-bus" ng-href="#/station"></a>
+    </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">Abfahrtsmonitor</h4>
+          <p class="list-group-item-text">Aktuelle Informationen zu Abfahrtzeiten von Bus und Bahn in der Nähe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised btn-primary mdi-content-create" ng-href="#/pic"></a>
+    </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">Gästebuch</h4>
+          <p class="list-group-item-text">Hier könnt ihr eine Nachricht hinterlassen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised btn-primary mdi-action-add-shopping-cart" ng-href="#/shopping"></a>
+    </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">Einkaufsliste</h4>
+          <p class="list-group-item-text">Hier kannst du neue Einträge hinzufügen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised btn-primary mdi-hardware-cast" ng-href="#/pic"></a>
+    </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">RSS Feeds</h4>
+          <p class="list-group-item-text">Newsfeed (Feeds hinzufügen unter Einstellungen)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised btn-primary mdi-action-event" ng-href="#/cal"></a>
+    </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">Kalender</h4>
+          <p class="list-group-item-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised btn-primary mdi-image-camera-alt" ng-href="#/pic"></a>
+    </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">Bilder</h4>
+          <p class="list-group-item-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <a class="btn btn-fab btn-raised btn-primary mdi-action-settings" ng-href="#/settings"></a>
+    </div>
+    <div class="row-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="action-secondary">
+            <i class="mdi-material-info"></i>
+          </div>
+          <h4 class="list-group-item-heading">Einstellungen</h4>
+          <p class="list-group-item-text">WG-Screen Konfigurieren</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

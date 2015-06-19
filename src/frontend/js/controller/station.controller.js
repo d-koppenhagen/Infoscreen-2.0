@@ -1,19 +1,18 @@
-/* LVB view controller */
+/* station view controller */
 (function(){
     "use strict";
 	angular
 		.module('wgscreen')
-        .controller('lvbCtrl', ['$scope', '$timeout', '$http', '$routeParams',
+        .controller('stationCtrl', ['$scope', '$timeout', '$http', '$routeParams',
             function($scope, $timeout, $http, $routeParams) {
-                console.log('open lvb page...');
+                console.log('open station page...');
 
                 $scope.stations = [];
 
                 var refresh  = function(){
-                    console.log("Refreshing duration monitor...", config.lvb);
-                    config.lvb.stations = JSON.parse(localStorage.getItem("lvb_station_ids")); // replace with localStorage value
+                    config.station.stations = JSON.parse(localStorage.getItem("lvb_station_ids")); // replace with localStorage value
 
-                    config.lvb.stations.forEach(function(stationNumber) {
+                    config.station.stations.forEach(function(stationNumber) {
                         //sending data and get a result
                         $http.get('/station/' + stationNumber)
                             .success(insertStationData)

@@ -11,9 +11,9 @@
 				templateUrl: 'templates/start.html',
                 controller: 'startCtrl'
 			}).
-			when('/lvb', {
-				templateUrl: 'templates/lvb.html',
-                controller: 'lvbCtrl'
+			when('/station', {
+				templateUrl: 'templates/station.html',
+                controller: 'stationCtrl'
 			}).
 			when('/cal', {
 				templateUrl: 'templates/cal.html',

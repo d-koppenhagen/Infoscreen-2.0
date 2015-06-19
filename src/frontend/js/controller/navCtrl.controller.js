@@ -17,7 +17,7 @@
             firstLocked : true,
             label : [
                 { name : "Übersicht", value : "main", icon : "mdi-navigation-apps", destination: "#/"},
-                { name : "LVB Info", value : "lvb", icon : "mdi-maps-directions-bus", destination: "#/lvb"},
+                { name : "LVB Info", value : "station", icon : "mdi-maps-directions-bus", destination: "#/station"},
                 { name : "Kalender", value : "cal", icon : "mdi-action-event", destination: "#/cal"},
                 { name : "Bilder", value : "pic", icon : "mdi-image-camera-alt", destination: "#/pic"},
                 { name : "Feeds", value : "feed", icon : "mdi-hardware-cast", destination: "#/feeds"},

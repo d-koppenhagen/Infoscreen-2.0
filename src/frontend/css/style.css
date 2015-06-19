@@ -2,6 +2,9 @@ body{
     padding-top: 70px;
 }
 
+.navbar-right{
+  margin-right: 0px;
+}
 
 [class^=mdi-], [class*=mdi-] {
   font: normal normal normal 14px/1 'Material-Design-Icons';

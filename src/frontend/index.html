@@ -53,17 +53,19 @@
 
 <body>
   <!-- Nav Controller -->
-  <div ng-controller="navCtrl" class="navbar navbar-inverse navbar-fixed-top">
+  <div ng-controller="navCtrl" class="navbar navbar-inverse navbar-fixed-top" >
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navItems"  aria-expanded="false">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand"></a>
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="img/nav_img.png">
+      </a>
     </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav" ng-repeat="item in navItem.label">
+    <div id="navItems" class="collapse navbar-collapse navbar-responsive-collapse">
+      <ul role="navigation" class="nav navbar-nav" ng-repeat="item in navItem.label">
         <li>
           <a ng-href="{{item.destination}}" href="javascript:void(0)">
             <i class="{{item.icon}}"></i>
@@ -71,9 +73,9 @@
           </a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul role="navigation" class="nav navbar-nav navbar-right">
         <li>
-          <a ng-href="{{item.destination}}" href="javascript:void(0)">
+          <a ng-href="{{item.destination}}">
             <span class="visible-lg">{{date | date:"EEEE ', ' d '. ' MMMM yyyy '. Es ist ' hh:mm:ss"}}</span>
             <span class="visible-md">{{date | date:"d'.'MM'.'yyyy' - ' hh:mm:ss"}}</span>
             <span class="visible-sm">{{date | date:"hh:mm:ss"}}</span>
@@ -133,6 +135,7 @@
 
 
   <!--  ##############  javascript files (Vendor files) ############## -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js"></script>
 
@@ -162,7 +165,7 @@
   <script src="js/controller/start.controller.js"></script>
   <script src="js/controller/feed.controller.js"></script>
   <script src="js/controller/task.controller.js"></script>
-  <script src="js/controller/lvb.controller.js"></script>
+  <script src="js/controller/station.controller.js"></script>
   <script src="js/controller/gallery.controller.js"></script>
   <script src="js/controller/calendar.controller.js"></script>
   <script src="js/controller/guestbook.controller.js"></script>

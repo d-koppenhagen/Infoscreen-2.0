@@ -3,7 +3,7 @@ var config = {
         "name": "WLANNAME",  // "WLANNAME"
         "key": "WLANKEY"    // "WLANKEY"
     },
-    "lvb": {
+    "station": {
         "stations" : [  // array with hfas-IDs
             "13247","11563"
         ],
