@@ -1,7 +1,35 @@
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Einen Gästebucheintrag hinzufügen</h3>
+    </div>
+    <p></p>
+    <div class="list-group">
+    <div class="list-group-item">
+      <div class="row-action-primary">
+        <a ng-click="sendGBentry()" class="btn btn-fab btn-raised btn-primary mdi-content-send pull-right"></a>
+      </div>
+      <div class="row-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="action-secondary">
+              <i class="mdi-material-info"></i>
+            </div>
+            <h4 class="list-group-item-heading">Dein Name:</h4>
+            <input ng-model="inputName" required type="text" class="form-control input-lg" id="inputName" placeholder="Max Mustermann">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+<hr style="padding:0px; margin:0px;">
+      <textarea ng-model="inputMessage" required class="form-control" rows="3" id="summernote"></textarea>
+</div>
+
 <form class="form-horizontal" id="gbform">
     <fieldset>
         <legend>Einen Gästebucheintrag hinzufügen</legend>
-        <a ng-click="sendGBentry()" class="btn btn-primary btn-fab btn-raised mdi-content-send pull-right" data-toggle=snackbar data-content="Dein Eintrag wurde hinzugefügt"></a>
         <div class="form-group">
             <div class="col-lg-6">
                 <input ng-model="inputName" required type="text" class="form-control input-lg" id="inputName" placeholder="Max Mustermann">

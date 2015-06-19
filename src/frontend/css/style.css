@@ -31,7 +31,15 @@ body{
 
 .note-editor .note-toolbar {
     background-color: inherit;
-    border-bottom: none !important;
+    border-color: #e5e5e5 !important;
+}
+
+.note-editor .note-toolbar .btn-group {
+  margin: 3px 10px 3px 8px;
+}
+
+.note-editor .note-toolbar .btn {
+  background-color: #e5e5e5;
 }
 
 .noUi-connect#red{
