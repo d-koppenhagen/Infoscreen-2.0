@@ -1,7 +1,7 @@
 <div ng-controller="infoSidebarCtrl">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title">{{cityname}}, aktuell: {{currentTemp | number:1}}&deg;C</h3>
+      <h3 class="panel-title">{{current.cityname}}, {{current.temp | number:1}}&deg;C - {{current.description}}</h3>
     </div>
     <table class="table table-striped table-hover">
       <thead>
@@ -15,36 +15,37 @@
       <tbody class="text-center">
         <tr>
           <td class="text-left hidden-xs">Temperaturen</td>
-          <td ng-repeat="temp in weatherData.temperatures.average track by $index">{{temp | number:1}}&deg;C</td>
+          <td ng-repeat="temp in forecast.temperatures.average track by $index">{{temp | number:1}}&deg;C</td>
         </tr>
         <tr class="text-info">
           <td class="text-right hidden-xs">Min.</td>
-          <td ng-repeat="temp in weatherData.temperatures.min track by $index">{{temp | number:1}}&deg;C</td>
+          <td ng-repeat="temp in forecast.temperatures.min track by $index">{{temp | number:1}}&deg;C</td>
         </tr>
         <tr class="text-danger">
           <td class="text-right hidden-xs">Max.</td>
-          <td ng-repeat="temp in weatherData.temperatures.max track by $index">{{temp | number:1}}&deg;C</td>
+          <td ng-repeat="temp in forecast.temperatures.max track by $index">{{temp | number:1}}&deg;C</td>
         </tr>
         <tr>
           <td class="text-left hidden-xs">Bewölkung</td>
-          <td ng-repeat="icon in weatherData.icons track by $index">
-            <img src="http://openweathermap.org/img/w/{{icon}}.png"/>
+          <td ng-repeat="desc in forecast.description track by $index">
+            <i class="owf owf-{{desc.icon}} owf-4x"></i>
+            <br> <span>{{desc.text}}</span>
           </td>
         </tr>
         <tr>
           <td class="text-left hidden-xs">Windgeschwindigkeit</td>
-          <td ng-repeat="speed in weatherData.wind.speed track by $index">{{speed | number:1}}
+          <td ng-repeat="speed in forecast.wind.speed track by $index">{{speed | number:1}}
             km/h<br><i class="mdi-content-forward"></i>
           </td>
         </tr>
         <tr>
           <td class="text-left hidden-xs">Luftdruck</td>
-          <td ng-repeat="pres in weatherData.pressure track by $index">{{pres | number:0}}
+          <td ng-repeat="pres in forecast.pressure track by $index">{{pres | number:0}}
             hPa</td>
         </tr>
         <tr>
           <td class="text-left hidden-xs">Luftfeuchtigkeit</td>
-          <td ng-repeat="hum in weatherData.humidity track by $index">{{hum | number:1}}
+          <td ng-repeat="hum in forecast.humidity track by $index">{{hum | number:1}}
             %</td>
         </tr>
       </tbody>

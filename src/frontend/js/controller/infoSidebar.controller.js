@@ -22,10 +22,14 @@
 
                 function insertData (data) {
                     console.log("getting new weather data:", data);
-                        $scope.cityname = data.city.name;
-                        $scope.currentTemp = data.list[0].main.temp;
+                        $scope.current = {
+                          "cityname" : data.city.name,
+                          "temp" : data.list[0].main.temp,
+                          "icon" : data.list[0].weather[0].id,
+                          "description" : data.list[0].weather[0].description
+                        }
 
-                        $scope.weatherData = {
+                        $scope.forecast = {
                             "temperatures": {
                                 "average" : [
                                         data.list[0].main.temp,
@@ -66,10 +70,19 @@
                                 data.list[1].main.humidity,
                                 data.list[2].main.humidity
                             ],
-                            icons : [
-                                data.list[0].weather[0].icon,
-                                data.list[1].weather[0].icon,
-                                data.list[2].weather[0].icon
+                            "description" : [
+                              {
+                                "icon": data.list[0].weather[0].id,
+                                "text": data.list[0].weather[0].description
+                              },
+                              {
+                                "icon": data.list[1].weather[0].id,
+                                "text": data.list[1].weather[0].description
+                              },
+                              {
+                                "icon": data.list[2].weather[0].id,
+                                "text": data.list[2].weather[0].description
+                              }
                             ]
                         };
                 }
