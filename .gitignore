@@ -3,6 +3,6 @@
 # Example .gitignore files: https://github.com/github/gitignore
 **/node_modules/**
 /src/frontend/js/settings.js
-/src/resources/photos/**
+/src/resources/**
 /src/config.js
 /npm-debug.log
