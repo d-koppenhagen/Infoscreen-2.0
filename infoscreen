@@ -76,6 +76,9 @@ start() {
     # Note that redirecting the output to /dev/null (or anywhere) is necessary
     # to make this script work if provisioning the service via Chef.
     forever start --watch --watchDirectory $APPLICATION_DIR --pidFile $PIDFILE -a -l $LOGFILE --minUptime $MIN_UPTIME --spinSleepTime $SPIN_SLEEP_TIME $APPLICATION_PATH 2>&1 > /dev/null & RETVAL=$?
+    sleep 10
+    service apache2 restart
+    echo "done"
 }
 
 stop() {
