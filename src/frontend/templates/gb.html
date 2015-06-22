@@ -35,10 +35,11 @@
     <div ng-repeat="entry in gbentries|limitTo:gblimit"  class="list-group">
         <div class="list-group-item">
             <div class="row-action-primary">
-                <i>{{entry.name | limitTo: 3}}</i>
+                <img class="circle" ng-src="{{entry.img}}"></img>
+                <!--<i>{{entry.name | limitTo: 3}}</i>-->
             </div>
             <div class="row-content">
-                <div class="least-content">15m</div>
+                <div class="least-content">{{entry.timestamp | date : format : longDate}}</div>
                 <h4 class="list-group-item-heading">{{entry.name}}</h4>
                 <p ng-bind-html="entry.text" class="list-group-item-text"></p>
             </div>
