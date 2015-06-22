@@ -7,6 +7,12 @@ connection.connect();
 exports.getGuestbookData = function(req, res) {
     connection.query('SELECT * FROM guestbook ORDER BY timestamp DESC', function(err, rows, fields) {
       if (err) throw err;
+
+      //set link for random images with first three letters of author name
+      for(i=0; i<rows.length; i++){
+        rows[i].img = 'http://lorempixel.com/56/56/abstract/'+ rows[i].name.substring(0, 3);
+      }
+
       res.send(rows);
     });
 };
