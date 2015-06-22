@@ -10,6 +10,8 @@
     "express": "*",
     "mongoose": "*",
     "node-gallery": "^1.0.3",
-    "oauth": "*"
+    "oauth": "*",
+    "mysql": "*",
+    "node-gallery": "*"
   }
 }

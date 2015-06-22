@@ -15,10 +15,6 @@
 				templateUrl: 'templates/station.html',
                 controller: 'stationCtrl'
 			}).
-			when('/cal', {
-				templateUrl: 'templates/cal.html',
-                controller: 'calendarCtrl'
-			}).
 			when('/pic', {
 				templateUrl: 'templates/pic.html',
                 controller: 'galleryCtrl'
@@ -47,8 +43,8 @@
 				templateUrl: 'templates/shopping.html',
                 controller: 'shoppingCtrl',
 			}).
-            otherwise({
-                templateUrl: 'templates/start.html',
-            });
+      otherwise({
+        templateUrl: 'templates/start.html',
+      });
 	}
 }());

@@ -6,7 +6,7 @@
         .controller('stationCtrl', ['$scope', '$timeout', '$http', '$routeParams',
             function($scope, $timeout, $http, $routeParams) {
                 console.log('open station page...');
-
+                $scope.stationlimit = parseInt(localStorage.getItem("max_stations"));
                 $scope.stations = [];
 
                 var refresh  = function(){
@@ -29,9 +29,7 @@
                 }
                 $timeout(refresh,0);
 
-                $scope.stationlimit = localStorage.getItem("max_stations");
                 $scope.moreEntries = function () {
-                    console.log("test");
                     $scope.stationlimit = parseInt($scope.stationlimit)+5;
                 };
 
