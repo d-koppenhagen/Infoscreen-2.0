@@ -52,4 +52,12 @@ body{
     background: rgb(44,72,228);
 }
 
-/* ./summernote style */
+/* calendar style */
+table .btn.btn-sm {
+  padding: 5px 15px;
+}
+
+/* weather detail */
+table tbody .weather-detail {
+  font-size: 12px;
+}

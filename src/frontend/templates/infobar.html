@@ -28,8 +28,8 @@
         <tr>
           <td class="text-left hidden-xs">Bewölkung</td>
           <td ng-repeat="desc in forecast.description track by $index">
-            <i class="owf owf-{{desc.icon}} owf-4x"></i>
-            <br> <span>{{desc.text}}</span>
+            <i class="owf owf-{{desc.icon}} owf-3x"></i>
+            <br> <span class="weather-detail">{{desc.text}}</span>
           </td>
         </tr>
         <tr>
