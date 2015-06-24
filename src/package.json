@@ -1,7 +1,7 @@
 {
-  "name": "infoscreen-gallery",
-  "version": "1.0.0",
-  "description": "a simple image gallery based on nodejs",
+  "name": "infoscreen",
+  "version": "2.0.0",
+  "description": "A infoscreen",
   "main": "server.js",
   "author": "Danny Koppenhagen",
   "dependencies": {
@@ -10,8 +10,7 @@
     "express": "*",
     "mongoose": "*",
     "node-gallery": "^1.0.3",
-    "oauth": "*",
     "mysql": "*",
-    "node-gallery": "*"
+    "oauth": "*"
   }
 }
