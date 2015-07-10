@@ -1,6 +1,9 @@
 exports.apikey = "YOURAPIKEY";
 exports.port = 3000;
 
+// set to true to use minified version (you have to run gulp compress before)
+exports.minified = false;
+
 exports.mysqlGBcred = {
   host     : 'SERVER',
   database : 'DATABASE',

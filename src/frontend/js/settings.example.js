@@ -3,15 +3,9 @@ var config = {
         "name": "WLANNAME",  // "WLANNAME"
         "key": "WLANKEY"    // "WLANKEY"
     },
-    "station": {
-        "stations" : [  // array with hfas-IDs
-            "13247","11563"
-        ],
-        "max_stations" : "8",
-    },
-    "gb": {
-        "max_entries" : "8"
-    },
+    "stations" : [  // array with hfas-IDs
+        "13247","11563"
+    ],
     "weather": {
         "location" : "2879139"
     },

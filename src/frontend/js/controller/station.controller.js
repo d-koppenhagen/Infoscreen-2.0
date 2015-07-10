@@ -10,9 +10,9 @@
                 $scope.stations = [];
 
                 var refresh  = function(){
-                    config.station.stations = JSON.parse(localStorage.getItem("lvb_station_ids")); // replace with localStorage value
+                    config.stations = JSON.parse(localStorage.getItem("lvb_station_ids")); // replace with localStorage value
 
-                    config.station.stations.forEach(function(stationNumber) {
+                    config.stations.forEach(function(stationNumber) {
                         //sending data and get a result
                         $http.get('/station/' + stationNumber)
                             .success(insertStationData)

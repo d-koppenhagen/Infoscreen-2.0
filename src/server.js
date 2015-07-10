@@ -64,7 +64,10 @@ app.post('/guestbook', guestbook.postGuestbookEntry);
 app.get('/login', trello.login);
 
 //static frontend
-app.use(express.static(__dirname + '/frontend'));
+var staticPath = '/frontend'
+if (config.minified) staticPath +='-min';
+
+app.use(express.static(__dirname + staticPath));
 
 app.listen(config.port);
 console.log("the app will run on:",config.port);

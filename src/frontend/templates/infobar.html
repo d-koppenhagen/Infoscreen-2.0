@@ -1,4 +1,4 @@
-<div ng-controller="infoSidebarCtrl">
+<div ng-controller="infoSidebarCtrl" class="hidden-xs">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">{{current.cityname}}, {{current.temp | number:1}}&deg;C - {{current.description}}</h3>
@@ -59,3 +59,4 @@
       <datepicker ng-model="dt" show-weeks="true"></datepicker>
     </div>
   </div>
+</div>

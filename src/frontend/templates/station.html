@@ -6,7 +6,7 @@
                     <h3 class="panel-title">{{station.stationName}}</h3>
                 </div>
                 <div class="panel-body"></div>
-                <div ng-repeat="connection in station.journeys track by $index|limitTo:stationlimit" class="list-group">
+                <div ng-repeat="connection in station.journeys|limitTo:stationlimit" class="list-group">
                     <div class="list-group-item">
                         <div class="row-action-primary">
                             <i style="background-color: #{{connection.color}} !important;">{{connection.shortLabel}}</i>
