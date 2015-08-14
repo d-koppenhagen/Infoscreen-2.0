@@ -48,19 +48,6 @@
             $rootScope.isActive.remote = true;
           });
 
-          webrtc.on('videoAdded', function(video, peer) {
-
-            console.log('video added', peer, video);
-            var remotes = document.getElementById('remotesVideos');
-            remotes.appendChild(video);
-              /*
-              video.onclick = function() {
-                video.style.width = video.videoWidth + 'px';
-                video.style.height = video.videoHeight + 'px';
-              };
-              */
-
-          });
 
           webrtc.on('videoRemoved', function(video, peer) {
             console.log('video removed ', peer);
