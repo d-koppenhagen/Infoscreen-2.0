@@ -8,6 +8,7 @@ var gallery = require('./routes/gallery.js');
 var station = require('./routes/station.js');
 var guestbook = require('./routes/guestbook.js');
 var trello = require('./routes/trello.js');
+var weather = require('./routes/weather.js');
 
 var app = express();
 var config = require("./config.js");
@@ -59,6 +60,9 @@ app.get('/station/:id', station.getStationInfo);
 /* station monitor routes */
 app.get('/guestbook', guestbook.getGuestbookData);
 app.post('/guestbook', guestbook.postGuestbookEntry);
+
+/* Weather */
+app.get('/weather/:id', weather.getWeatherInfo);
 
 /* Trello login */
 app.get('/login', trello.login);

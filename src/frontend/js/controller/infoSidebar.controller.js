@@ -13,7 +13,7 @@
 
 
                 function getWeatherData() {
-                    $http.get('http://api.openweathermap.org/data/2.5/forecast?id='+cityID+'&units=metric&lang=de&cnt=5&mode=json&APPID='+config.weather.apikey)
+                    $http.get('/weather/' + cityID)
                         .success(insertData)
                         .error(function(data, status, headers, config) {
                             console.log("Error by getting data", data, status, headers, config);

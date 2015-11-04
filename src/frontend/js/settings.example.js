@@ -4,10 +4,10 @@ var config = {
         "key": "WLANKEY"    // "WLANKEY"
     },
     "stations" : [  // array with hfas-IDs
-        "13247","11563"
+        "9019204"
     ],
     "weather": {
-        "location" : "2879139"
+        "location" : "2950159"
     },
     "rssFeeds" : [
         {
