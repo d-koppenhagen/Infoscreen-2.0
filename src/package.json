@@ -5,13 +5,15 @@
   "main": "server.js",
   "author": "Danny Koppenhagen",
   "dependencies": {
+    "bluebird": "^3.0.5",
     "body-parser": "*",
     "cors": "*",
     "express": "*",
     "mongoose": "*",
-    "node-gallery": "^1.0.3",
     "mysql": "*",
-    "oauth": "*"
+    "node-gallery": "^1.0.3",
+    "oauth": "*",
+    "vbb": "^0.3.2"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

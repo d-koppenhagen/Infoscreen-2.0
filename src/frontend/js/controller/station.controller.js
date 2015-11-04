@@ -7,7 +7,7 @@
             function($scope, $timeout, $http, $routeParams) {
                 console.log('open station page...');
                 $scope.stationlimit = parseInt(localStorage.getItem("max_stations"));
-                $scope.stations = [];
+                $scope.station;
 
                 var refresh  = function(){
                     config.stations = JSON.parse(localStorage.getItem("lvb_station_ids")); // replace with localStorage value
@@ -21,7 +21,7 @@
                         });
                         function insertStationData (data) {
                             console.log(data);
-                            $scope.stations.push(data);
+                            $scope.station = data;
                         }
                         $timeout(refresh,randomTime());
                     });
@@ -38,6 +38,17 @@
                     var random=Math.floor((Math.random()*(2000))+(4000))*60;
                     console.log(random);
                     return random;
+                }
+
+                $scope.timeDiff = function(expected, real){
+                  if (!real) return 0;
+
+                  var e = new Date(expected).getTime();
+                  var r = new Date(real).getTime();
+
+                  if (e == r) return 0;
+
+                  return new Date (r-e)
                 }
         }]);
 }());

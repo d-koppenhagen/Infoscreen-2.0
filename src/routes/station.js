@@ -1,6 +1,17 @@
 var http = require('http');
+var vbb = require('vbb');
+var Promise = require('bluebird');
 
 exports.getStationInfo = function(req, res) {
+    var client = vbb('6d293143-1988-41a1-9bca-b0b6be98822e');
+
+    // Mierendorffplatz: 9019204
+    client.departures(9019204, {   // `id` for S Beusselstraße
+        results: 20
+    }).then(function (results) {
+        res.send(results);
+    });
+    /*
     var id = req.params.id;
     var clientid = generateID ();
 
@@ -27,6 +38,8 @@ exports.getStationInfo = function(req, res) {
             res.end(responseParts.join(''));
         });
     });
+
+    */
 
 };
 
